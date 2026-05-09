@@ -1,0 +1,39 @@
+{
+  "asset_id": "016",
+  "case_id": "newobj_006",
+  "image_path": "../images/originals/0ed37dbddd4f318a7017556f76438b8c.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 2,
+    "product_view_types": [
+      "bottle",
+      "bottle"
+    ],
+    "product_colors": [
+      "beige"
+    ],
+    "props": [
+      "podium"
+    ],
+    "objects": [],
+    "scene_terms": []
+  },
+  "frame_read": {
+    "frame_type_observed": "Product set",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "side",
+    "light_pattern_observed": "cast_shadow"
+  },
+  "notes": [
+    "подиум считается реквизитом",
+    "две одинаковые бутылки считаются как 2 продукта"
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "asset_id": "002",
+  "case_id": "case_002",
+  "image_path": "../images/originals/002.jpg",
+  "hard_filters": {
+    "product_category_primary": "not_collected",
+    "frame_type": "Product + decor",
+    "crop_type": "tight_crop",
+    "camera_angle": "top",
+    "light_character": "soft",
+    "light_direction": "top",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "bottle"
+    ],
+    "product_colors": [
+      "sage_green"
+    ],
+    "props": [
+      "tableware"
+    ],
+    "objects": [],
+    "scene_terms": [
+      "metal"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "bottle",
+    "sage_green",
+    "tableware",
+    "metal",
+    "Product + decor",
+    "tight_crop",
+    "top",
+    "soft",
+    "none_detected",
+    "neutral_low_color",
+    "none",
+    "medium",
+    "Один продукт, top view, поднос как реквизит."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname",
+    "product_category_not_collected"
+  ]
+}

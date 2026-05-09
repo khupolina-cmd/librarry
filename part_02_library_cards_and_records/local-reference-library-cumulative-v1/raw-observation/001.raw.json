@@ -1,0 +1,42 @@
+{
+  "asset_id": "001",
+  "case_id": "case_001",
+  "image_path": "../images/originals/001.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 2,
+    "product_view_types": [
+      "bottle",
+      "tube"
+    ],
+    "product_colors": [
+      "mint",
+      "light_blue"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "water",
+      "wet_glass"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product set",
+    "crop_type_observed": "tight_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "soft",
+    "light_direction_observed": "back",
+    "light_pattern_observed": "none_detected"
+  },
+  "notes": [
+    "мокрое стекло и конденсат впереди",
+    "два продукта читаются раздельно",
+    "статичная сцена без действия"
+  ]
+}

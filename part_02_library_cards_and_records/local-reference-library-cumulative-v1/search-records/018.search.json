@@ -1,0 +1,55 @@
+{
+  "asset_id": "018",
+  "case_id": "newobj_008",
+  "image_path": "../images/originals/0f6c1ed6fd8655f1440f2b461567ebc3.jpg",
+  "hard_filters": {
+    "product_category_primary": "not_collected",
+    "frame_type": "Object / texture reference",
+    "crop_type": "partial_crop",
+    "camera_angle": "front",
+    "light_character": "hard",
+    "light_direction": "back",
+    "light_pattern": "caustics",
+    "product_package_count_bucket": "0"
+  },
+  "co_presence": {
+    "product_view_types": [],
+    "product_colors": [],
+    "props": [],
+    "objects": [
+      "cucumber"
+    ],
+    "scene_terms": [
+      "water"
+    ]
+  },
+  "query_terms": [
+    "0",
+    "без продукта",
+    "object reference",
+    "texture reference",
+    "cucumber",
+    "water",
+    "Object / texture reference",
+    "partial_crop",
+    "front",
+    "hard",
+    "back",
+    "caustics",
+    "analogous",
+    "none",
+    "botanical",
+    "editorial",
+    "niche_editorial",
+    "static",
+    "high",
+    "Объектный и текстурный референс без видимой упаковки."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname",
+    "product_category_not_collected",
+    "zero_product_reference"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "asset_id": "014",
+  "case_id": "newobj_004",
+  "image_path": "../images/originals/0c1af6c93a7e549767191055fcb07e6a.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "jar"
+    ],
+    "product_colors": [
+      "silver"
+    ],
+    "props": [],
+    "objects": [
+      "spatula"
+    ],
+    "scene_terms": [
+      "metal"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + decor",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "three_quarter"
+  },
+  "light_read": {
+    "light_character_observed": "soft",
+    "light_direction_observed": "top",
+    "light_pattern_observed": "even"
+  },
+  "notes": [
+    "шпатель оставлен объектом, а не типом упаковки"
+  ]
+}

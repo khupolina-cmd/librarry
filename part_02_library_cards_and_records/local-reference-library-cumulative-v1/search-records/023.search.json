@@ -1,0 +1,55 @@
+{
+  "asset_id": "023",
+  "case_id": "newobj_013",
+  "image_path": "../images/originals/1c7e0bd9-6443-41e7-804e-43ac4cc7767d.JPEG",
+  "hard_filters": {
+    "product_category_primary": "fragrance",
+    "frame_type": "Product + hand",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "soft",
+    "light_direction": "back",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "yellow"
+    ],
+    "props": [],
+    "objects": [
+      "hand"
+    ],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "vial",
+    "yellow",
+    "hand",
+    "Product + hand",
+    "no_crop",
+    "front",
+    "soft",
+    "back",
+    "none_detected",
+    "neutral_low_color",
+    "none",
+    "hero",
+    "editorial",
+    "niche_editorial",
+    "static",
+    "low",
+    "Один парфюмерный флакон, руки формируют hero-жест."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "asset_id": "016",
+  "case_id": "newobj_006",
+  "image_path": "../images/originals/0ed37dbddd4f318a7017556f76438b8c.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product set",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "hard",
+    "light_direction": "side",
+    "light_pattern": "cast_shadow",
+    "product_package_count_bucket": "2"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "bottle",
+      "bottle"
+    ],
+    "product_colors": [
+      "beige"
+    ],
+    "props": [
+      "podium"
+    ],
+    "objects": [],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "2",
+    "2 упаковки",
+    "2 product packages",
+    "bottle",
+    "beige",
+    "podium",
+    "Product set",
+    "no_crop",
+    "front",
+    "hard",
+    "side",
+    "cast_shadow",
+    "complementary_or_high_contrast",
+    "none",
+    "editorial",
+    "hero",
+    "niche_editorial",
+    "static",
+    "low",
+    "Две бутылки на подиуме, одна стоит, вторая лежит."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

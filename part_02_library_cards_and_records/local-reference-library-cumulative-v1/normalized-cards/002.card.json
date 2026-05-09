@@ -1,0 +1,51 @@
+{
+  "asset_id": "002",
+  "case_id": "case_002",
+  "image_path": "../images/originals/002.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "not_collected",
+  "product_items": [
+    {
+      "product_view_type": "bottle",
+      "product_color_primary": "Светло-зеленый",
+      "product_material_primary": "Стекло",
+      "product_size_bucket": "D3",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product + decor",
+  "crop_type": "tight_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "top",
+  "light_character": "soft",
+  "light_direction": "top",
+  "light_pattern": "none_detected",
+  "gradient_class": "none",
+  "palette_relationship": "neutral_low_color",
+  "props": [
+    "tableware"
+  ],
+  "objects": [],
+  "scene_terms": [
+    "metal"
+  ],
+  "presentation": "not_collected",
+  "styles": [],
+  "composition_motion_state": "not_collected",
+  "composition_density": "medium",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "поднос считается реквизитом",
+    "солнечным не считается"
+  ]
+}

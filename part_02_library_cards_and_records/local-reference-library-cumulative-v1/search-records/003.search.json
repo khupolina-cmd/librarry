@@ -1,0 +1,60 @@
+{
+  "asset_id": "003",
+  "case_id": "case_003",
+  "image_path": "../images/originals/003.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product set",
+    "crop_type": "tight_crop",
+    "camera_angle": "three_quarter",
+    "light_character": "soft",
+    "light_direction": "top",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "3"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "tube",
+      "tube",
+      "tube"
+    ],
+    "product_colors": [
+      "cream",
+      "beige",
+      "silver"
+    ],
+    "props": [
+      "podium"
+    ],
+    "objects": [],
+    "scene_terms": [
+      "reflection"
+    ]
+  },
+  "query_terms": [
+    "3",
+    "3 упаковки",
+    "3 product packages",
+    "tube",
+    "cream",
+    "beige",
+    "silver",
+    "podium",
+    "reflection",
+    "Product set",
+    "tight_crop",
+    "three_quarter",
+    "soft",
+    "top",
+    "none_detected",
+    "neutral_low_color",
+    "none",
+    "medium",
+    "Сет из трёх тюбиков. Капля продукта есть, но действия нет."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

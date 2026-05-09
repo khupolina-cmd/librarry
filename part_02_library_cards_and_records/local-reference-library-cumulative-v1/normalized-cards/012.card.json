@@ -1,0 +1,55 @@
+{
+  "asset_id": "012",
+  "case_id": "newobj_002",
+  "image_path": "../images/originals/01b35ffff4278a0c0a2638ee6a444169.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "vial",
+      "product_color_primary": "Голубой",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "прямоугольник"
+    }
+  ],
+  "frame_type": "Product + texture",
+  "crop_type": "no_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "front",
+  "light_character": "hard",
+  "light_direction": "top",
+  "light_pattern": "caustics",
+  "gradient_class": "none",
+  "palette_relationship": "cool_monochrome",
+  "props": [],
+  "objects": [
+    "ice"
+  ],
+  "scene_terms": [
+    "water",
+    "underwater"
+  ],
+  "presentation": "mass_commercial",
+  "styles": [
+    "clean_commercial",
+    "laboratory_clinical"
+  ],
+  "composition_motion_state": "dynamic",
+  "composition_density": "high",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "водная среда и лед живут как searchable evidence",
+    "каустики возвращены в блок света"
+  ]
+}

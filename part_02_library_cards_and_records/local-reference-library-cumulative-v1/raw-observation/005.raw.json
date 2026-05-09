@@ -1,0 +1,45 @@
+{
+  "asset_id": "005",
+  "case_id": "case_005",
+  "image_path": "../images/originals/005.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "bottle"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [
+      "shelf"
+    ],
+    "objects": [
+      "sponge",
+      "brush",
+      "foam"
+    ],
+    "scene_terms": [
+      "water",
+      "bath"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + decor",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "sunlight",
+    "light_direction_observed": "side",
+    "light_pattern_observed": "none_detected"
+  },
+  "notes": [
+    "мокрая ванная среда без action",
+    "солнечный свет читается по жёстким теням"
+  ]
+}

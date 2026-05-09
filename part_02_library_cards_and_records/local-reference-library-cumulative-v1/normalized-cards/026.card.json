@@ -1,0 +1,51 @@
+{
+  "asset_id": "026",
+  "case_id": "newobj_016",
+  "image_path": "../images/originals/2dd889cbfe7f60e37621161e713b8a85.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "fragrance",
+  "product_items": [
+    {
+      "product_view_type": "vial",
+      "product_color_primary": "Золотой",
+      "product_material_primary": "Стекло",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "прямоугольник"
+    }
+  ],
+  "frame_type": "Product-only",
+  "crop_type": "loose_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "front",
+  "light_character": "sunlight",
+  "light_direction": "top",
+  "light_pattern": "cast_shadow",
+  "gradient_class": "none",
+  "palette_relationship": "neutral_low_color",
+  "props": [],
+  "objects": [],
+  "scene_terms": [
+    "reflection"
+  ],
+  "presentation": "niche_editorial",
+  "styles": [
+    "hero",
+    "minimalism"
+  ],
+  "composition_motion_state": "static",
+  "composition_density": "low",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "много воздуха вокруг, поэтому loose_crop"
+  ]
+}

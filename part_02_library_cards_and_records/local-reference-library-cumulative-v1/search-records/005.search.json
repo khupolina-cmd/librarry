@@ -1,0 +1,63 @@
+{
+  "asset_id": "005",
+  "case_id": "case_005",
+  "image_path": "../images/originals/005.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + decor",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "sunlight",
+    "light_direction": "side",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "bottle"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [
+      "shelf"
+    ],
+    "objects": [
+      "sponge",
+      "brush",
+      "foam"
+    ],
+    "scene_terms": [
+      "water",
+      "bath"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "bottle",
+    "white",
+    "shelf",
+    "sponge",
+    "brush",
+    "foam",
+    "water",
+    "bath",
+    "Product + decor",
+    "no_crop",
+    "front",
+    "sunlight",
+    "side",
+    "none_detected",
+    "analogous",
+    "none",
+    "high",
+    "Ванная сцена без действия. Полка — реквизит, предметы вокруг — объекты."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

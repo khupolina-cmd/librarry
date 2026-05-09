@@ -1,0 +1,58 @@
+{
+  "asset_id": "014",
+  "case_id": "newobj_004",
+  "image_path": "../images/originals/0c1af6c93a7e549767191055fcb07e6a.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + decor",
+    "crop_type": "no_crop",
+    "camera_angle": "three_quarter",
+    "light_character": "soft",
+    "light_direction": "top",
+    "light_pattern": "even",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "jar"
+    ],
+    "product_colors": [
+      "silver"
+    ],
+    "props": [],
+    "objects": [
+      "spatula"
+    ],
+    "scene_terms": [
+      "metal"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "jar",
+    "silver",
+    "spatula",
+    "metal",
+    "Product + decor",
+    "no_crop",
+    "three_quarter",
+    "soft",
+    "top",
+    "even",
+    "neutral_low_color",
+    "none",
+    "editorial",
+    "hero",
+    "niche_editorial",
+    "static",
+    "low",
+    "Открытая баночка и отдельный металлический шпатель."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

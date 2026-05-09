@@ -1,0 +1,51 @@
+{
+  "asset_id": "023",
+  "case_id": "newobj_013",
+  "image_path": "../images/originals/1c7e0bd9-6443-41e7-804e-43ac4cc7767d.JPEG",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "fragrance",
+  "product_items": [
+    {
+      "product_view_type": "vial",
+      "product_color_primary": "Желтый",
+      "product_material_primary": "Стекло",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "прямоугольник"
+    }
+  ],
+  "frame_type": "Product + hand",
+  "crop_type": "no_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "front",
+  "light_character": "soft",
+  "light_direction": "back",
+  "light_pattern": "none_detected",
+  "gradient_class": "none",
+  "palette_relationship": "neutral_low_color",
+  "props": [],
+  "objects": [
+    "hand"
+  ],
+  "scene_terms": [],
+  "presentation": "niche_editorial",
+  "styles": [
+    "hero",
+    "editorial"
+  ],
+  "composition_motion_state": "static",
+  "composition_density": "low",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "парфюм живет в high-level категории fragrance"
+  ]
+}

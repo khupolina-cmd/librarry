@@ -1,0 +1,60 @@
+{
+  "asset_id": "015",
+  "case_id": "newobj_005",
+  "image_path": "../images/originals/0ce560857660dfae3d3c3ca3afdf72b3.webp",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + decor",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "soft",
+    "light_direction": "top",
+    "light_pattern": "even",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "jar"
+    ],
+    "product_colors": [
+      "silver"
+    ],
+    "props": [],
+    "objects": [
+      "facial_roller",
+      "tongs"
+    ],
+    "scene_terms": [
+      "metal"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "jar",
+    "silver",
+    "facial_roller",
+    "tongs",
+    "metal",
+    "Product + decor",
+    "no_crop",
+    "front",
+    "soft",
+    "top",
+    "even",
+    "analogous",
+    "none",
+    "editorial",
+    "trend_driven",
+    "niche_editorial",
+    "static",
+    "medium",
+    "Один металлический контейнер, рядом роллер и щипцы."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "asset_id": "026",
+  "case_id": "newobj_016",
+  "image_path": "../images/originals/2dd889cbfe7f60e37621161e713b8a85.webp",
+  "hard_filters": {
+    "product_category_primary": "fragrance",
+    "frame_type": "Product-only",
+    "crop_type": "loose_crop",
+    "camera_angle": "front",
+    "light_character": "sunlight",
+    "light_direction": "top",
+    "light_pattern": "cast_shadow",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "gold"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "reflection"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "vial",
+    "gold",
+    "reflection",
+    "Product-only",
+    "loose_crop",
+    "front",
+    "sunlight",
+    "top",
+    "cast_shadow",
+    "neutral_low_color",
+    "none",
+    "hero",
+    "minimalism",
+    "niche_editorial",
+    "static",
+    "low",
+    "Один флакон с яйцеобразной крышкой и золотым отражением."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

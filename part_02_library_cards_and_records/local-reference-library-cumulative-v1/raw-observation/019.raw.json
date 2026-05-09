@@ -1,0 +1,37 @@
+{
+  "asset_id": "019",
+  "case_id": "newobj_009",
+  "image_path": "../images/originals/1aa92ea8-e3f8-498c-864d-b213f5538ddb.JPEG",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "amber"
+    ],
+    "props": [],
+    "objects": [
+      "hand"
+    ],
+    "scene_terms": []
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + hand",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "side"
+  },
+  "light_read": {
+    "light_character_observed": "soft",
+    "light_direction_observed": "back",
+    "light_pattern_observed": "none_detected"
+  },
+  "notes": [
+    "рука значима для retrieval"
+  ]
+}

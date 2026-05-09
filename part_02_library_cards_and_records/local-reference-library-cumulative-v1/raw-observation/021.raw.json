@@ -1,0 +1,35 @@
+{
+  "asset_id": "021",
+  "case_id": "newobj_011",
+  "image_path": "../images/originals/1bab4255b7d901ace043eebf5ac7437f.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "compact"
+    ],
+    "product_colors": [
+      "pink"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": []
+  },
+  "frame_read": {
+    "frame_type_observed": "Product-only",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "frontal",
+    "light_pattern_observed": "colored_light"
+  },
+  "notes": [
+    "новый тип упаковки compact добавлен как review-worthy extension"
+  ]
+}

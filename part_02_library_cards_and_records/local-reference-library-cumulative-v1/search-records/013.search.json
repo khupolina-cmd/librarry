@@ -1,0 +1,57 @@
+{
+  "asset_id": "013",
+  "case_id": "newobj_003",
+  "image_path": "../images/originals/0bbec58947ce51f071ef23e450854ac5.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + texture",
+    "crop_type": "tight_crop",
+    "camera_angle": "front",
+    "light_character": "soft",
+    "light_direction": "back",
+    "light_pattern": "caustics",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "bottle"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "water",
+      "underwater"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "bottle",
+    "white",
+    "water",
+    "underwater",
+    "Product + texture",
+    "tight_crop",
+    "front",
+    "soft",
+    "back",
+    "caustics",
+    "cool_monochrome",
+    "none",
+    "editorial",
+    "trend_driven",
+    "niche_editorial",
+    "semi_dynamic",
+    "medium",
+    "Один продукт в воде, линия жидкости режет сцену, но упаковка читается."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

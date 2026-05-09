@@ -1,0 +1,59 @@
+{
+  "asset_id": "016",
+  "case_id": "newobj_006",
+  "image_path": "../images/originals/0ed37dbddd4f318a7017556f76438b8c.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "bottle",
+      "product_color_primary": "Бежевый",
+      "product_material_primary": "Стекло",
+      "product_size_bucket": "D4",
+      "product_shape_primary": "вытянутый прямоугольник"
+    },
+    {
+      "product_view_type": "bottle",
+      "product_color_primary": "Бежевый",
+      "product_material_primary": "Стекло",
+      "product_size_bucket": "D4",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product set",
+  "crop_type": "no_crop",
+  "product_package_count": 2,
+  "product_package_count_bucket": "2",
+  "camera_angle": "front",
+  "light_character": "hard",
+  "light_direction": "side",
+  "light_pattern": "cast_shadow",
+  "gradient_class": "none",
+  "palette_relationship": "complementary_or_high_contrast",
+  "props": [
+    "podium"
+  ],
+  "objects": [],
+  "scene_terms": [],
+  "presentation": "niche_editorial",
+  "styles": [
+    "editorial",
+    "hero"
+  ],
+  "composition_motion_state": "static",
+  "composition_density": "low",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "подиум считается реквизитом",
+    "две одинаковые бутылки считаются как 2 продукта"
+  ]
+}

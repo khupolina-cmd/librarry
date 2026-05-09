@@ -1,0 +1,60 @@
+{
+  "asset_id": "012",
+  "case_id": "newobj_002",
+  "image_path": "../images/originals/01b35ffff4278a0c0a2638ee6a444169.webp",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + texture",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "hard",
+    "light_direction": "top",
+    "light_pattern": "caustics",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "light_blue"
+    ],
+    "props": [],
+    "objects": [
+      "ice"
+    ],
+    "scene_terms": [
+      "water",
+      "underwater"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "vial",
+    "light_blue",
+    "ice",
+    "water",
+    "underwater",
+    "Product + texture",
+    "no_crop",
+    "front",
+    "hard",
+    "top",
+    "caustics",
+    "cool_monochrome",
+    "none",
+    "clean_commercial",
+    "laboratory_clinical",
+    "mass_commercial",
+    "dynamic",
+    "high",
+    "Один флакон в холодной водной среде, лед и каустики."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

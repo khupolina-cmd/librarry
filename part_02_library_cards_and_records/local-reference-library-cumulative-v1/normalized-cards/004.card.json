@@ -1,0 +1,54 @@
+{
+  "asset_id": "004",
+  "case_id": "case_004",
+  "image_path": "../images/originals/004.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "bottle",
+      "product_color_primary": "Белый",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D4",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product + decor",
+  "crop_type": "no_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "three_quarter",
+  "light_character": "soft",
+  "light_direction": "top",
+  "light_pattern": "none_detected",
+  "gradient_class": "none",
+  "palette_relationship": "neutral_low_color",
+  "props": [
+    "tableware"
+  ],
+  "objects": [
+    "shell_soap",
+    "pepper"
+  ],
+  "scene_terms": [
+    "metal"
+  ],
+  "presentation": "not_collected",
+  "styles": [],
+  "composition_motion_state": "not_collected",
+  "composition_density": "medium",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "поднос живёт как prop",
+    "ракушка и перец живут как searchable objects"
+  ]
+}

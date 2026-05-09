@@ -1,0 +1,53 @@
+{
+  "asset_id": "014",
+  "case_id": "newobj_004",
+  "image_path": "../images/originals/0c1af6c93a7e549767191055fcb07e6a.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "jar",
+      "product_color_primary": "Серебро",
+      "product_material_primary": "Металл",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "квадрат"
+    }
+  ],
+  "frame_type": "Product + decor",
+  "crop_type": "no_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "three_quarter",
+  "light_character": "soft",
+  "light_direction": "top",
+  "light_pattern": "even",
+  "gradient_class": "none",
+  "palette_relationship": "neutral_low_color",
+  "props": [],
+  "objects": [
+    "spatula"
+  ],
+  "scene_terms": [
+    "metal"
+  ],
+  "presentation": "niche_editorial",
+  "styles": [
+    "editorial",
+    "hero"
+  ],
+  "composition_motion_state": "static",
+  "composition_density": "low",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "шпатель оставлен объектом, а не типом упаковки"
+  ]
+}

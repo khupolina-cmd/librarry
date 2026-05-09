@@ -1,0 +1,42 @@
+{
+  "asset_id": "007",
+  "case_id": "case_007",
+  "image_path": "../images/originals/007.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 2,
+    "product_view_types": [
+      "tube",
+      "box"
+    ],
+    "product_colors": [
+      "white",
+      "red"
+    ],
+    "props": [
+      "stone"
+    ],
+    "objects": [],
+    "scene_terms": [
+      "red_background"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product set",
+    "crop_type_observed": "tight_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "side",
+    "light_pattern_observed": "none_detected"
+  },
+  "notes": [
+    "коробка считается второй читаемой упаковкой",
+    "камень остаётся реквизитом"
+  ]
+}

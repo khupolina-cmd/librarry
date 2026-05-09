@@ -1,0 +1,66 @@
+{
+  "asset_id": "022",
+  "case_id": "newobj_012",
+  "image_path": "../images/originals/1c15fe561ab436dadef0a9d175c46ea1 (1).jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + decor",
+    "crop_type": "no_crop",
+    "camera_angle": "top",
+    "light_character": "soft",
+    "light_direction": "top",
+    "light_pattern": "even",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "burgundy"
+    ],
+    "props": [
+      "tableware"
+    ],
+    "objects": [
+      "coffee_cup",
+      "pitcher",
+      "chocolate",
+      "spoon"
+    ],
+    "scene_terms": [
+      "metal"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "tube",
+    "burgundy",
+    "tableware",
+    "coffee_cup",
+    "pitcher",
+    "chocolate",
+    "spoon",
+    "metal",
+    "Product + decor",
+    "no_crop",
+    "top",
+    "soft",
+    "even",
+    "complementary_or_high_contrast",
+    "none",
+    "clean_commercial",
+    "editorial",
+    "mass_commercial",
+    "static",
+    "medium",
+    "Один продукт на подносе, окружён посудой и едой."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

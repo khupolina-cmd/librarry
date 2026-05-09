@@ -1,0 +1,55 @@
+{
+  "asset_id": "017",
+  "case_id": "newobj_007",
+  "image_path": "../images/originals/0f502d8742d45d4012eecb86dc2a4b98.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product-only",
+    "crop_type": "loose_crop",
+    "camera_angle": "front",
+    "light_character": "hard",
+    "light_direction": "frontal",
+    "light_pattern": "cast_shadow",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "light_blue"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "reflection"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "tube",
+    "light_blue",
+    "reflection",
+    "Product-only",
+    "loose_crop",
+    "front",
+    "hard",
+    "frontal",
+    "cast_shadow",
+    "cool_monochrome",
+    "none",
+    "minimalism",
+    "trend_driven",
+    "niche_editorial",
+    "static",
+    "low",
+    "Один сильно смятый тюбик на отражающей поверхности."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "asset_id": "021",
+  "case_id": "newobj_011",
+  "image_path": "../images/originals/1bab4255b7d901ace043eebf5ac7437f.webp",
+  "hard_filters": {
+    "product_category_primary": "beauty",
+    "frame_type": "Product-only",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "hard",
+    "light_direction": "frontal",
+    "light_pattern": "colored_light",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "compact"
+    ],
+    "product_colors": [
+      "pink"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "compact",
+    "pink",
+    "Product-only",
+    "no_crop",
+    "front",
+    "hard",
+    "frontal",
+    "colored_light",
+    "complementary_or_high_contrast",
+    "none",
+    "trend_driven",
+    "editorial",
+    "niche_editorial",
+    "static",
+    "low",
+    "Открытый компакт, новый тип упаковки для реестра."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname",
+    "new_packaging_type"
+  ]
+}

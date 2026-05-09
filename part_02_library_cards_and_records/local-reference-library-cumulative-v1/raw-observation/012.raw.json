@@ -1,0 +1,41 @@
+{
+  "asset_id": "012",
+  "case_id": "newobj_002",
+  "image_path": "../images/originals/01b35ffff4278a0c0a2638ee6a444169.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "light_blue"
+    ],
+    "props": [],
+    "objects": [
+      "ice"
+    ],
+    "scene_terms": [
+      "water",
+      "underwater"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + texture",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "top",
+    "light_pattern_observed": "caustics"
+  },
+  "notes": [
+    "водная среда и лед живут как searchable evidence",
+    "каустики возвращены в блок света"
+  ]
+}

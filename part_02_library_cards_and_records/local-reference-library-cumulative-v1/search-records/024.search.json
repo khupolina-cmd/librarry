@@ -1,0 +1,58 @@
+{
+  "asset_id": "024",
+  "case_id": "newobj_014",
+  "image_path": "../images/originals/1d5ff4ef-a62c-4401-8d85-c882d7b6997d.JPEG",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + action",
+    "crop_type": "no_crop",
+    "camera_angle": "front",
+    "light_character": "hard",
+    "light_direction": "top",
+    "light_pattern": "caustics",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "bottle"
+    ],
+    "product_colors": [
+      "sage_green"
+    ],
+    "props": [],
+    "objects": [
+      "ice"
+    ],
+    "scene_terms": [
+      "water"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "bottle",
+    "sage_green",
+    "ice",
+    "water",
+    "Product + action",
+    "no_crop",
+    "front",
+    "hard",
+    "top",
+    "caustics",
+    "analogous",
+    "none",
+    "clean_commercial",
+    "hero",
+    "mass_commercial",
+    "dynamic",
+    "medium",
+    "Один продукт в активной splash-сцене на ледяной опоре."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

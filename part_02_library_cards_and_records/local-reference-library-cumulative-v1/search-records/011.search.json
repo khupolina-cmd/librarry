@@ -1,0 +1,57 @@
+{
+  "asset_id": "011",
+  "case_id": "newobj_001",
+  "image_path": "../images/originals/00e18a8be0953687a8379b156263b50a.webp",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + hand",
+    "crop_type": "tight_crop",
+    "camera_angle": "front",
+    "light_character": "sunlight",
+    "light_direction": "top",
+    "light_pattern": "cast_shadow",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "black"
+    ],
+    "props": [],
+    "objects": [
+      "hand",
+      "cream_drop"
+    ],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "tube",
+    "black",
+    "hand",
+    "cream_drop",
+    "Product + hand",
+    "tight_crop",
+    "front",
+    "sunlight",
+    "top",
+    "cast_shadow",
+    "complementary_or_high_contrast",
+    "none",
+    "editorial",
+    "hero",
+    "niche_editorial",
+    "semi_dynamic",
+    "low",
+    "Черный тюбик в руках, кадр с выраженным lifestyle-жестом."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "asset_id": "003",
+  "case_id": "case_003",
+  "image_path": "../images/originals/003.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Кремовый",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "вытянутый прямоугольник"
+    },
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Бежевый",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "вытянутый прямоугольник"
+    },
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Серебро",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product set",
+  "crop_type": "tight_crop",
+  "product_package_count": 3,
+  "product_package_count_bucket": "3",
+  "camera_angle": "three_quarter",
+  "light_character": "soft",
+  "light_direction": "top",
+  "light_pattern": "none_detected",
+  "gradient_class": "none",
+  "palette_relationship": "neutral_low_color",
+  "props": [
+    "podium"
+  ],
+  "objects": [],
+  "scene_terms": [
+    "reflection"
+  ],
+  "presentation": "not_collected",
+  "styles": [],
+  "composition_motion_state": "not_collected",
+  "composition_density": "medium",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "три отдельные упаковки читаются",
+    "капля продукта не превращает кадр в action"
+  ]
+}

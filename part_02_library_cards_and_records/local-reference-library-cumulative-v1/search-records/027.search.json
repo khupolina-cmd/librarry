@@ -1,0 +1,55 @@
+{
+  "asset_id": "027",
+  "case_id": "newobj_017",
+  "image_path": "../images/originals/2ea69a241c2ff6613989a6e5afcc9a3a.webp",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + decor",
+    "crop_type": "tight_crop",
+    "camera_angle": "front",
+    "light_character": "sunlight",
+    "light_direction": "side",
+    "light_pattern": "cast_shadow",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [],
+    "objects": [
+      "bag"
+    ],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "tube",
+    "white",
+    "bag",
+    "Product + decor",
+    "tight_crop",
+    "front",
+    "sunlight",
+    "side",
+    "cast_shadow",
+    "complementary_or_high_contrast",
+    "none",
+    "clean_commercial",
+    "hero",
+    "mass_commercial",
+    "static",
+    "medium",
+    "Один белый тюбик, сумка вокруг работает как объект среды."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

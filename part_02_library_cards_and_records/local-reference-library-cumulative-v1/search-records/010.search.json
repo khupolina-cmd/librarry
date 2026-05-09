@@ -1,0 +1,53 @@
+{
+  "asset_id": "010",
+  "case_id": "case_010",
+  "image_path": "../images/originals/010.jpeg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + action",
+    "crop_type": "no_crop",
+    "camera_angle": "low",
+    "light_character": "hard",
+    "light_direction": "back",
+    "light_pattern": "caustics",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "jar"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "water",
+      "pouring"
+    ]
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "jar",
+    "white",
+    "water",
+    "pouring",
+    "Product + action",
+    "no_crop",
+    "low",
+    "hard",
+    "back",
+    "caustics",
+    "cool_monochrome",
+    "none",
+    "medium",
+    "Явный action-кадр: льющаяся вода и splash вокруг баночки."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

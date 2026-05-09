@@ -1,0 +1,37 @@
+{
+  "asset_id": "023",
+  "case_id": "newobj_013",
+  "image_path": "../images/originals/1c7e0bd9-6443-41e7-804e-43ac4cc7767d.JPEG",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "yellow"
+    ],
+    "props": [],
+    "objects": [
+      "hand"
+    ],
+    "scene_terms": []
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + hand",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "soft",
+    "light_direction_observed": "back",
+    "light_pattern_observed": "none_detected"
+  },
+  "notes": [
+    "парфюм живет в high-level категории fragrance"
+  ]
+}

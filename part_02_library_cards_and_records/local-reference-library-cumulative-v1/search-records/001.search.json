@@ -1,0 +1,57 @@
+{
+  "asset_id": "001",
+  "case_id": "case_001",
+  "image_path": "../images/originals/001.webp",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product set",
+    "crop_type": "tight_crop",
+    "camera_angle": "front",
+    "light_character": "soft",
+    "light_direction": "back",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "2"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "bottle",
+      "tube"
+    ],
+    "product_colors": [
+      "mint",
+      "light_blue"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "water",
+      "wet_glass"
+    ]
+  },
+  "query_terms": [
+    "2",
+    "2 упаковки",
+    "2 product packages",
+    "bottle",
+    "tube",
+    "mint",
+    "light_blue",
+    "water",
+    "wet_glass",
+    "Product set",
+    "tight_crop",
+    "front",
+    "soft",
+    "back",
+    "none_detected",
+    "analogous",
+    "none",
+    "high",
+    "Два продукта за мокрым стеклом. Сцена статичная, но текстурная."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

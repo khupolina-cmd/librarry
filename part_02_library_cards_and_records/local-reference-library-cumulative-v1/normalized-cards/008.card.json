@@ -1,0 +1,47 @@
+{
+  "asset_id": "008",
+  "case_id": "case_008",
+  "image_path": "../images/originals/008.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Желтый",
+      "product_material_primary": "Алюминий",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product set",
+  "crop_type": "partial_crop",
+  "product_package_count": 7,
+  "product_package_count_bucket": "4+",
+  "camera_angle": "top",
+  "light_character": "hard",
+  "light_direction": "top",
+  "light_pattern": "none_detected",
+  "gradient_class": "none",
+  "palette_relationship": "high_contrast_monochrome",
+  "props": [],
+  "objects": [],
+  "scene_terms": [],
+  "presentation": "not_collected",
+  "styles": [],
+  "composition_motion_state": "not_collected",
+  "composition_density": "high",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "повтор одного и того же типа упаковки",
+    "значимая часть крайних тюбиков выходит за кадр"
+  ]
+}

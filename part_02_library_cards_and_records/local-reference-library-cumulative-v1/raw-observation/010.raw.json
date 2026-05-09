@@ -1,0 +1,39 @@
+{
+  "asset_id": "010",
+  "case_id": "case_010",
+  "image_path": "../images/originals/010.jpeg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "jar"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "water",
+      "pouring"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + action",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "low"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "back",
+    "light_pattern_observed": "caustics"
+  },
+  "notes": [
+    "льющаяся вода и splash = action",
+    "баночка читается целиком"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "asset_id": "027",
+  "case_id": "newobj_017",
+  "image_path": "../images/originals/2ea69a241c2ff6613989a6e5afcc9a3a.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Белый",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D3",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product + decor",
+  "crop_type": "tight_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "front",
+  "light_character": "sunlight",
+  "light_direction": "side",
+  "light_pattern": "cast_shadow",
+  "gradient_class": "none",
+  "palette_relationship": "complementary_or_high_contrast",
+  "props": [],
+  "objects": [
+    "bag"
+  ],
+  "scene_terms": [],
+  "presentation": "mass_commercial",
+  "styles": [
+    "clean_commercial",
+    "hero"
+  ],
+  "composition_motion_state": "static",
+  "composition_density": "medium",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "сумка остается searchable object, а не проп"
+  ]
+}

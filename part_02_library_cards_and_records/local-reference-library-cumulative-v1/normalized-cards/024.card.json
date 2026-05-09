@@ -1,0 +1,54 @@
+{
+  "asset_id": "024",
+  "case_id": "newobj_014",
+  "image_path": "../images/originals/1d5ff4ef-a62c-4401-8d85-c882d7b6997d.JPEG",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "bottle",
+      "product_color_primary": "Светло-зеленый",
+      "product_material_primary": "Стекло",
+      "product_size_bucket": "D3",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product + action",
+  "crop_type": "no_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "front",
+  "light_character": "hard",
+  "light_direction": "top",
+  "light_pattern": "caustics",
+  "gradient_class": "none",
+  "palette_relationship": "analogous",
+  "props": [],
+  "objects": [
+    "ice"
+  ],
+  "scene_terms": [
+    "water"
+  ],
+  "presentation": "mass_commercial",
+  "styles": [
+    "clean_commercial",
+    "hero"
+  ],
+  "composition_motion_state": "dynamic",
+  "composition_density": "medium",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "вода уже движется, поэтому это action",
+    "студийная надпись не считается source metadata"
+  ]
+}

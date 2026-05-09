@@ -1,0 +1,37 @@
+{
+  "asset_id": "017",
+  "case_id": "newobj_007",
+  "image_path": "../images/originals/0f502d8742d45d4012eecb86dc2a4b98.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "light_blue"
+    ],
+    "props": [],
+    "objects": [],
+    "scene_terms": [
+      "reflection"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product-only",
+    "crop_type_observed": "loose_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "frontal",
+    "light_pattern_observed": "cast_shadow"
+  },
+  "notes": [
+    "алюминий читается по характерным вмятинам"
+  ]
+}

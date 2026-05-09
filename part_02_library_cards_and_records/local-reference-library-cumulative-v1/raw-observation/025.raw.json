@@ -1,0 +1,41 @@
+{
+  "asset_id": "025",
+  "case_id": "newobj_015",
+  "image_path": "../images/originals/1e058e707e123fd38c2126e613183726.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 2,
+    "product_view_types": [
+      "bottle",
+      "bottle"
+    ],
+    "product_colors": [
+      "white",
+      "beige"
+    ],
+    "props": [
+      "podium"
+    ],
+    "objects": [
+      "fabric_veil"
+    ],
+    "scene_terms": []
+  },
+  "frame_read": {
+    "frame_type_observed": "Product set",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "very_soft",
+    "light_direction_observed": "side",
+    "light_pattern_observed": "even"
+  },
+  "notes": [
+    "вуаль живет как объект слоя сцены, не как отдельный product"
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "asset_id": "019",
+  "case_id": "newobj_009",
+  "image_path": "../images/originals/1aa92ea8-e3f8-498c-864d-b213f5538ddb.JPEG",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + hand",
+    "crop_type": "no_crop",
+    "camera_angle": "side",
+    "light_character": "soft",
+    "light_direction": "back",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "vial"
+    ],
+    "product_colors": [
+      "amber"
+    ],
+    "props": [],
+    "objects": [
+      "hand"
+    ],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "vial",
+    "amber",
+    "hand",
+    "Product + hand",
+    "no_crop",
+    "side",
+    "soft",
+    "back",
+    "none_detected",
+    "complementary_or_high_contrast",
+    "none",
+    "minimalism",
+    "hero",
+    "niche_editorial",
+    "static",
+    "low",
+    "Один небольшой янтарный флакон с пипеткой, кадр поддержан рукой."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "asset_id": "006",
+  "case_id": "case_006",
+  "image_path": "../images/originals/006.jpg",
+  "hard_filters": {
+    "product_category_primary": "skincare",
+    "frame_type": "Product + decor",
+    "crop_type": "loose_crop",
+    "camera_angle": "front",
+    "light_character": "soft",
+    "light_direction": "frontal",
+    "light_pattern": "none_detected",
+    "product_package_count_bucket": "1"
+  },
+  "co_presence": {
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "white"
+    ],
+    "props": [],
+    "objects": [
+      "flower"
+    ],
+    "scene_terms": []
+  },
+  "query_terms": [
+    "1",
+    "1 упаковки",
+    "1 product packages",
+    "tube",
+    "white",
+    "flower",
+    "Product + decor",
+    "loose_crop",
+    "front",
+    "soft",
+    "frontal",
+    "none_detected",
+    "analogous",
+    "none",
+    "low",
+    "Один тюбик, много воздуха, цветочная ветка участвует как объект."
+  ],
+  "review_flags": [
+    "source_title_not_collected",
+    "author_noname",
+    "studio_noname"
+  ]
+}

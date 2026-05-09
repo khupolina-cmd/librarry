@@ -1,0 +1,36 @@
+{
+  "asset_id": "018",
+  "case_id": "newobj_008",
+  "image_path": "../images/originals/0f6c1ed6fd8655f1440f2b461567ebc3.jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 0,
+    "product_view_types": [],
+    "product_colors": [],
+    "props": [],
+    "objects": [
+      "cucumber"
+    ],
+    "scene_terms": [
+      "water"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Object / texture reference",
+    "crop_type_observed": "partial_crop",
+    "camera_angle_observed": "front"
+  },
+  "light_read": {
+    "light_character_observed": "hard",
+    "light_direction_observed": "back",
+    "light_pattern_observed": "caustics"
+  },
+  "notes": [
+    "нулевой продуктовый кейс надо сохранять, а не выбрасывать",
+    "это отдельный объектный референс"
+  ]
+}

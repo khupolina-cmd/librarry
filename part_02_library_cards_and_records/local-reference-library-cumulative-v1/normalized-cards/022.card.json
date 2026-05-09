@@ -1,0 +1,58 @@
+{
+  "asset_id": "022",
+  "case_id": "newobj_012",
+  "image_path": "../images/originals/1c15fe561ab436dadef0a9d175c46ea1 (1).jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Бордовый",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product + decor",
+  "crop_type": "no_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "top",
+  "light_character": "soft",
+  "light_direction": "top",
+  "light_pattern": "even",
+  "gradient_class": "none",
+  "palette_relationship": "complementary_or_high_contrast",
+  "props": [
+    "tableware"
+  ],
+  "objects": [
+    "coffee_cup",
+    "pitcher",
+    "chocolate",
+    "spoon"
+  ],
+  "scene_terms": [
+    "metal"
+  ],
+  "presentation": "mass_commercial",
+  "styles": [
+    "clean_commercial",
+    "editorial"
+  ],
+  "composition_motion_state": "static",
+  "composition_density": "medium",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "кофе и шоколад не схлопываются в абстрактный food"
+  ]
+}

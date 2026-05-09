@@ -1,0 +1,44 @@
+{
+  "asset_id": "022",
+  "case_id": "newobj_012",
+  "image_path": "../images/originals/1c15fe561ab436dadef0a9d175c46ea1 (1).jpg",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "visible": {
+    "product_package_count": 1,
+    "product_view_types": [
+      "tube"
+    ],
+    "product_colors": [
+      "burgundy"
+    ],
+    "props": [
+      "tableware"
+    ],
+    "objects": [
+      "coffee_cup",
+      "pitcher",
+      "chocolate",
+      "spoon"
+    ],
+    "scene_terms": [
+      "metal"
+    ]
+  },
+  "frame_read": {
+    "frame_type_observed": "Product + decor",
+    "crop_type_observed": "no_crop",
+    "camera_angle_observed": "top"
+  },
+  "light_read": {
+    "light_character_observed": "soft",
+    "light_direction_observed": "top",
+    "light_pattern_observed": "even"
+  },
+  "notes": [
+    "кофе и шоколад не схлопываются в абстрактный food"
+  ]
+}

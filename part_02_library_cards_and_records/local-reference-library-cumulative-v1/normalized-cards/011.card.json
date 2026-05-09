@@ -1,0 +1,53 @@
+{
+  "asset_id": "011",
+  "case_id": "newobj_001",
+  "image_path": "../images/originals/00e18a8be0953687a8379b156263b50a.webp",
+  "source": {
+    "source_title": "not_collected",
+    "author_name": "noname",
+    "studio_name": "noname"
+  },
+  "product_category_primary": "skincare",
+  "product_items": [
+    {
+      "product_view_type": "tube",
+      "product_color_primary": "Черный",
+      "product_material_primary": "Пластик",
+      "product_size_bucket": "D2",
+      "product_shape_primary": "вытянутый прямоугольник"
+    }
+  ],
+  "frame_type": "Product + hand",
+  "crop_type": "tight_crop",
+  "product_package_count": 1,
+  "product_package_count_bucket": "1",
+  "camera_angle": "front",
+  "light_character": "sunlight",
+  "light_direction": "top",
+  "light_pattern": "cast_shadow",
+  "gradient_class": "none",
+  "palette_relationship": "complementary_or_high_contrast",
+  "props": [],
+  "objects": [
+    "hand",
+    "cream_drop"
+  ],
+  "scene_terms": [],
+  "presentation": "niche_editorial",
+  "styles": [
+    "editorial",
+    "hero"
+  ],
+  "composition_motion_state": "semi_dynamic",
+  "composition_density": "low",
+  "parked_layers": [
+    "finish",
+    "cover_candidate",
+    "shot_scale",
+    "packaging_helper_subfields"
+  ],
+  "notes": [
+    "руки индексируются как searchable object",
+    "тюбик читается целиком, но кадр тесный"
+  ]
+}
