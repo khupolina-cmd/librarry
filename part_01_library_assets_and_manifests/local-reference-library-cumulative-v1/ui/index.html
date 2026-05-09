@@ -1,0 +1,2207 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reference Library Panel v1</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b0d;
+      --bg-2: #101417;
+      --panel: rgba(13, 16, 19, 0.96);
+      --panel-2: rgba(13, 16, 19, 0.96);
+      --panel-3: rgba(13, 16, 19, 0.96);
+      --line: rgba(255, 255, 255, 0.07);
+      --line-strong: rgba(255, 255, 255, 0.12);
+      --text: #f2f1ed;
+      --muted: #9ca3aa;
+      --muted-2: #737b84;
+      --accent: #d8c39a;
+      --accent-2: #9db8d1;
+      --good: #b8d4b1;
+      --warn: #d8b17a;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 9px;
+      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      --sans: "Instrument Sans", "Helvetica Neue", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: linear-gradient(180deg, #060708 0%, #060708 100%);
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.03;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at center, black 52%, transparent 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+
+    .page {
+      width: min(1760px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 14px 0 26px;
+    }
+
+    .topbar {
+      display: grid;
+      grid-template-columns: 1.15fr 1.6fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    .topbar-card {
+      min-height: 112px;
+      padding: 14px 16px 13px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .eyebrow {
+      font: 500 9px/1.3 var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .title {
+      margin: 0;
+      font-size: 24px;
+      line-height: 0.98;
+      letter-spacing: -0.035em;
+      font-weight: 600;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10, 12, 15, 0.92);
+      color: var(--muted);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .pill strong { color: var(--text); font-weight: 500; }
+    .pill.good { color: var(--good); }
+    .pill.warn { color: var(--warn); }
+
+    .search-card {
+      padding: 12px 14px 12px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      gap: 10px;
+    }
+
+    .search-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .search-input {
+      width: 100%;
+      height: 42px;
+      padding: 0 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(10, 12, 15, 0.92);
+      color: var(--text);
+      font-size: 12px;
+      outline: none;
+    }
+
+    .search-input::placeholder { color: var(--muted-2); }
+
+    .ghost-button {
+      height: 42px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(10, 12, 15, 0.92);
+      color: var(--muted);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .ghost-button:hover {
+      color: var(--text);
+      border-color: rgba(216, 195, 154, 0.35);
+      background: rgba(10, 12, 15, 0.92);
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 0 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10, 12, 15, 0.92);
+      color: var(--muted);
+      font: 500 9px/1 var(--mono);
+      letter-spacing: 0.04em;
+    }
+
+    .chip.query {
+      cursor: pointer;
+    }
+
+    .chip.query:hover,
+    .chip.active {
+      color: var(--text);
+      border-color: rgba(216, 195, 154, 0.34);
+      background: rgba(10, 12, 15, 0.92);
+    }
+
+    button.chip {
+      cursor: pointer;
+    }
+
+    .chip.removable {
+      gap: 7px;
+      padding-inline-end: 6px;
+    }
+
+    .chip.removable:hover {
+      border-color: rgba(216, 195, 154, 0.5);
+      background: rgba(10, 12, 15, 0.92);
+    }
+
+    .chip-close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      font: 500 10px/1 var(--mono);
+      flex: 0 0 auto;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr) 420px;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .sidebar,
+    .inspector {
+      position: sticky;
+      top: 14px;
+      max-height: calc(100vh - 28px);
+      overflow: auto;
+      padding: 14px;
+      scrollbar-width: thin;
+    }
+
+    .library {
+      padding: 14px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .section-note {
+      color: var(--muted-2);
+      font: 400 10px/1.35 var(--mono);
+    }
+
+    .filter-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .filter-section {
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      background: rgba(10, 12, 15, 0.9);
+      overflow: hidden;
+    }
+
+    .filter-section[open] {
+      border-color: rgba(255,255,255,0.08);
+      background: rgba(10, 12, 15, 0.9);
+    }
+
+    .filter-summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 11px;
+    }
+
+    .filter-summary::-webkit-details-marker { display: none; }
+
+    .filter-summary strong {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .summary-meta {
+      color: var(--muted-2);
+      font: 400 9px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .filter-body {
+      padding: 0 10px 10px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .filter-group {
+      display: grid;
+      gap: 6px;
+    }
+
+    .filter-label {
+      color: var(--muted-2);
+      font: 400 9px/1.3 var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .option-list {
+      display: grid;
+      gap: 4px;
+    }
+
+    .option {
+      display: grid;
+      grid-template-columns: 14px minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+      padding: 5px 6px;
+      border-radius: 9px;
+      background: rgba(10, 12, 15, 0.9);
+      border: 1px solid transparent;
+      cursor: pointer;
+      min-height: 28px;
+    }
+
+    .option:hover {
+      border-color: rgba(255,255,255,0.08);
+      background: rgba(10, 12, 15, 0.9);
+    }
+
+    .option input {
+      margin: 0;
+      accent-color: #dcc99e;
+      width: 12px;
+      height: 12px;
+    }
+
+    .option span {
+      min-width: 0;
+      font-size: 10px;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .option small {
+      color: var(--muted-2);
+      font: 400 9px/1 var(--mono);
+    }
+
+    .library-top {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: end;
+      margin-bottom: 12px;
+    }
+
+    .library-title {
+      margin: 3px 0 0;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+    }
+
+    .metric-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .active-bar {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .card-result {
+      position: relative;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(10, 12, 15, 0.94);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .card-result:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(10, 12, 15, 0.94);
+    }
+
+    .card-result.active {
+      border-color: rgba(216, 195, 154, 0.42);
+      box-shadow: inset 0 0 0 1px rgba(216, 195, 154, 0.12);
+    }
+
+    .thumb-wrap {
+      position: relative;
+      aspect-ratio: 0.84 / 1;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .thumb-overlay {
+      position: absolute;
+      inset: auto 8px 8px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      pointer-events: none;
+    }
+
+    .score-badge,
+    .count-badge {
+      min-height: 22px;
+      padding: 0 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(9, 11, 13, 0.72);
+      color: var(--text);
+      font: 500 9px/1 var(--mono);
+      display: inline-flex;
+      align-items: center;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .score-badge { color: var(--accent); }
+
+    .card-body {
+      padding: 10px 10px 11px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .card-kicker {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      color: var(--muted-2);
+      font: 400 9px/1 var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-title {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.2;
+      letter-spacing: -0.015em;
+      font-weight: 600;
+    }
+
+    .card-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .tag-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      min-height: 20px;
+      padding: 0 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.025);
+      color: var(--muted);
+      font: 500 9px/1 var(--mono);
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .result-footer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 4px;
+    }
+
+    .micro {
+      padding: 6px 7px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .micro strong,
+    .micro span {
+      display: block;
+      min-width: 0;
+    }
+
+    .micro strong {
+      color: var(--muted-2);
+      font: 400 8px/1 var(--mono);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+
+    .micro span {
+      color: var(--text);
+      font-size: 10px;
+      line-height: 1.2;
+    }
+
+    .empty-state {
+      padding: 26px;
+      border-radius: 18px;
+      border: 1px dashed rgba(255,255,255,0.13);
+      color: var(--muted);
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .inspector-header {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .selected-media {
+      width: 100%;
+      aspect-ratio: 0.82 / 1;
+      object-fit: cover;
+      display: block;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: #111;
+    }
+
+    .inspector-title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .inspector-summary {
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .inspector-sections {
+      display: grid;
+      gap: 8px;
+    }
+
+    .info-section {
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.018);
+      padding: 10px;
+      display: grid;
+      gap: 7px;
+    }
+
+    .info-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .info-head strong {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .kv {
+      padding: 7px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.018);
+      border: 1px solid rgba(255,255,255,0.04);
+      min-width: 0;
+    }
+
+    .kv b,
+    .kv span {
+      display: block;
+      min-width: 0;
+    }
+
+    .kv b {
+      color: var(--muted-2);
+      font: 400 8px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 5px;
+    }
+
+    .kv span {
+      color: var(--text);
+      font-size: 10px;
+      line-height: 1.35;
+    }
+
+    .stack {
+      display: grid;
+      gap: 6px;
+    }
+
+    .mini-product {
+      padding: 8px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.045);
+      display: grid;
+      gap: 7px;
+    }
+
+    .mini-product-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+    }
+
+    .mini-product-title strong {
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .mini-product-title span {
+      color: var(--muted-2);
+      font: 400 8px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .mini-product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .list-inline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .note-box {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .footer-note {
+      padding-top: 2px;
+      color: var(--muted-2);
+      font: 400 9px/1.5 var(--mono);
+    }
+
+    @media (max-width: 1480px) {
+      .workspace {
+        grid-template-columns: 300px minmax(0, 1fr);
+      }
+
+      .inspector {
+        position: static;
+        grid-column: 1 / -1;
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 1240px) {
+      .topbar,
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar,
+      .library,
+      .inspector {
+        position: static;
+        max-height: none;
+      }
+
+      .results-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 840px) {
+      .page {
+        width: min(100vw - 14px, 100%);
+        padding-top: 7px;
+      }
+
+      .results-grid,
+      .result-footer,
+      .info-grid,
+      .mini-product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <section class="panel topbar-card">
+        <div>
+          <div class="eyebrow">Reference Library</div>
+          <h1 class="title">Локальная библиотека уже проиндексированных референсов.</h1>
+        </div>
+        <div class="muted">Темная компактная оболочка поверх нормализованной карточки, поисковой логики и правой инспекции по твоим блокам.</div>
+        <div class="status-row">
+          <span class="pill"><strong id="libraryCountTop">10</strong> refs</span>
+          <span class="pill">local only</span>
+          <span class="pill">manual indexed sample</span>
+        </div>
+      </section>
+
+      <section class="panel search-card">
+        <div class="eyebrow">Поиск</div>
+        <div class="search-row">
+          <input id="queryInput" class="search-input" type="text" placeholder="Например: белый, вода, 2 упаковки, тюбик, поднос, close-up">
+          <button id="clearAllButton" class="ghost-button" type="button">Сбросить всё</button>
+        </div>
+        <div class="chip-row" id="presetQueries"></div>
+      </section>
+
+      <section class="panel topbar-card">
+        <div>
+          <div class="eyebrow">Статус</div>
+          <div class="status-row">
+            <span class="pill good">step 3 / shell assembly</span>
+            <span class="pill" id="resultsCountPill">0 visible</span>
+          </div>
+        </div>
+        <div class="muted" id="statusSummary">Сейчас панель показывает indexed sample library и держит retrieval-логику отдельно от display-слоя.</div>
+        <div class="status-row">
+          <a class="pill" href="architecture-shell-v1.html">architecture shell</a>
+          <a class="pill" href="semantic-authority-compiled-v1.md">semantic authority</a>
+        </div>
+      </section>
+    </header>
+
+    <section class="workspace">
+      <aside class="panel sidebar">
+        <div class="section-head">
+          <h2 class="section-title">Фильтры</h2>
+          <div class="section-note" id="filterSummary">0 active</div>
+        </div>
+        <div class="active-bar">
+          <div class="chip-row" id="activeFilterChips"></div>
+          <div class="chip-row" id="activeQueryChips"></div>
+        </div>
+        <div id="filterStack" class="filter-stack"></div>
+        <div class="footer-note">
+          Левая колонка держит строгий визуальный subset. Всё спорное и недонормализованное временно выведено из активного слоя.
+        </div>
+      </aside>
+
+      <main class="panel library">
+        <div class="library-top">
+          <div>
+            <div class="eyebrow">Library View</div>
+            <h2 class="library-title">Чистая библиотека</h2>
+          </div>
+          <div class="metric-strip">
+            <span class="pill" id="modePill">free browse</span>
+            <span class="pill" id="fallbackPill">no fallback</span>
+          </div>
+        </div>
+        <div class="active-bar">
+          <div class="muted" id="resultsSummary">Загрузка библиотеки…</div>
+        </div>
+        <div id="resultsGrid" class="results-grid"></div>
+      </main>
+
+      <aside class="panel inspector" id="detailPane">
+        <div class="empty-state">Выбери карточку из библиотеки, чтобы открыть полную инспекцию по блокам панели.</div>
+      </aside>
+    </section>
+  </div>
+
+  <script>
+    const DISPLAY = {
+      frameType: {
+        "Object / texture reference": "Object / texture reference",
+        "Product + hand": "Product + hand",
+        "Product set": "Product set",
+        "Product + decor": "Product + decor",
+        "Product + texture": "Product + texture",
+        "Product + action": "Product + action",
+        "Product-only": "Product-only"
+      },
+      cropType: {
+        "no_crop": "Без кропа",
+        "loose_crop": "Свободный кроп",
+        "tight_crop": "Плотный кроп",
+        "partial_crop": "Частичный кроп"
+      },
+      cameraAngle: {
+        "front": "Front view / фронтальный",
+        "three_quarter": "Three-quarter / 3/4",
+        "top": "Top view / сверху",
+        "side": "Side view / сбоку",
+        "low": "Low angle / снизу"
+      },
+      lightCharacter: {
+        "very_soft": "Очень мягкий",
+        "soft": "Мягкий",
+        "hard": "Жёсткий",
+        "sunlight": "Солнечный"
+      },
+      lightDirection: {
+        "frontal": "Фронтальный",
+        "side": "Боковой",
+        "top": "Верхний",
+        "back": "Контровой",
+        "bottom": "Нижний"
+      },
+      lightPattern: {
+        "none_detected": "Нет выраженного рисунка",
+        "even": "Равный свет",
+        "cast_shadow": "Световой рисунок / тень",
+        "caustics": "Каустики",
+        "ripped_light": "Рваный свет",
+        "gobo_pattern": "Габо-рисунок",
+        "rays": "Лучи",
+        "colored_light": "Цветной свет",
+        "warm_cool": "Тёплый + холодный"
+      },
+      gradientClass: {
+        "none": "Без градиента"
+      },
+      paletteRelationship: {
+        "analogous": "Аналоговая / близкие оттенки",
+        "neutral_low_color": "Нейтральная / low-color",
+        "complementary_or_high_contrast": "Контрастная",
+        "high_contrast_monochrome": "Высокий контраст",
+        "cool_monochrome": "Холодная монохромия"
+      },
+      color: {
+        "white": "Белый",
+        "black": "Черный",
+        "silver": "Серебро",
+        "mint": "Мятный",
+        "light_blue": "Голубой",
+        "sage_green": "Светло-зеленый",
+        "cream": "Кремовый",
+        "beige": "Бежевый",
+        "red": "Красный",
+        "yellow": "Желтый",
+        "soft_gray": "Светло-серый",
+        "blue": "Синий",
+        "green": "Зеленый",
+        "pink": "Розовый",
+        "gold": "Золотой",
+        "burgundy": "Бордовый",
+        "amber": "Янтарный"
+      },
+      sceneTerm: {
+        "water": "Вода",
+        "wet_glass": "Мокрое стекло",
+        "metal": "Металл",
+        "reflection": "Отражение",
+        "bath": "Ванная среда",
+        "red_background": "Красный фон",
+        "underwater": "В воде",
+        "pouring": "Льющаяся вода",
+        "ice": "Лед"
+      },
+      viewType: {
+        "bottle": "Бутылка",
+        "tube": "Тюбик",
+        "vial": "Флакон",
+        "jar": "Баночка",
+        "box": "Коробка",
+        "sachet": "Саше",
+        "pouch": "Пауч / дойпак",
+        "ampoule": "Ампула",
+        "stick": "Стик",
+        "roll_on": "Роллер",
+        "blister": "Блистер",
+        "compact": "Компакт"
+      },
+      category: {
+        "skincare": "Skincare",
+        "beauty": "Beauty",
+        "fragrance": "Fragrance / perfume",
+        "bags": "Bags",
+        "electronics": "Electronics",
+        "not_collected": "Не собрано"
+      },
+      presentation: {
+        "mass_commercial": "Mass commercial",
+        "niche_editorial": "Niche editorial"
+      },
+      style: {
+        "minimalism": "Minimalism",
+        "clean_commercial": "Clean commercial",
+        "hero": "Hero",
+        "editorial": "Editorial",
+        "trend_driven": "Trend-driven",
+        "botanical": "Botanical",
+        "floral": "Floral",
+        "laboratory_clinical": "Laboratory / clinical"
+      },
+      compositionMotion: {
+        "static": "Статичная",
+        "semi_dynamic": "Умеренно динамичная",
+        "dynamic": "Динамичная"
+      },
+      compositionDensity: {
+        "low": "Низкая плотность",
+        "medium": "Средняя плотность",
+        "high": "Высокая плотность",
+        "very_high": "Очень высокая плотность"
+      },
+      prop: {
+        "tray": "Посуда",
+        "podium": "Подиум",
+        "shelf": "Полка",
+        "stone": "Камни",
+        "cutlery": "Посуда",
+        "tableware": "Посуда"
+      },
+      object: {
+        "flower": "Цветок",
+        "shell_soap": "Мыльная ракушка",
+        "pepper": "Перец",
+        "sponge": "Губка",
+        "brush": "Щетка",
+        "foam": "Пена",
+        "hand": "Рука",
+        "cream_drop": "Капля крема",
+        "ice": "Лед",
+        "spatula": "Шпатель",
+        "facial_roller": "Роллер",
+        "tongs": "Щипцы",
+        "cucumber": "Огурец",
+        "coffee_cup": "Чашка кофе",
+        "pitcher": "Кувшин",
+        "chocolate": "Шоколад",
+        "spoon": "Ложка",
+        "fabric_veil": "Ткань / вуаль",
+        "bag": "Сумка"
+      }
+    };
+
+    const FILTER_TAXONOMY = {
+      viewType: ["bottle", "tube", "vial", "jar", "box", "sachet", "pouch", "ampoule", "stick", "roll_on", "blister", "compact"],
+      productCategory: ["skincare", "beauty", "fragrance", "bags", "electronics", "not_collected"],
+      productColor: ["white", "black", "silver", "mint", "light_blue", "sage_green", "cream", "beige", "red", "yellow", "soft_gray", "blue", "green", "pink", "gold", "burgundy", "amber"],
+      material: ["Пластик", "Стекло", "Металл", "Картон / бумага", "Алюминий"],
+      productSize: ["D1", "D2", "D3", "D4", "D5"],
+      productForm: ["вытянутый прямоугольник", "прямоугольник", "квадрат"],
+      cropType: ["no_crop", "loose_crop", "tight_crop", "partial_crop"],
+      frameType: ["Product-only", "Product + hand", "Product + decor", "Product + texture", "Product + action", "Product set", "Object / texture reference"],
+      countBucket: ["0", "1", "2", "3", "4", "4+"],
+      lightCharacter: ["hard", "soft", "very_soft", "sunlight"],
+      lightDirection: ["frontal", "side", "top", "back", "bottom"],
+      lightPattern: ["none_detected", "even", "cast_shadow", "caustics", "ripped_light", "gobo_pattern", "rays", "colored_light", "warm_cool"],
+      gradient: ["none"],
+      paletteRelationship: ["analogous", "neutral_low_color", "complementary_or_high_contrast", "high_contrast_monochrome", "cool_monochrome"],
+      presentation: ["mass_commercial", "niche_editorial"],
+      style: ["minimalism", "clean_commercial", "hero", "editorial", "trend_driven", "botanical", "floral", "laboratory_clinical"],
+      prop: ["tableware", "podium", "shelf", "stone"],
+      object: ["flower", "shell_soap", "pepper", "sponge", "brush", "foam", "hand", "cream_drop", "ice", "spatula", "facial_roller", "tongs", "cucumber", "coffee_cup", "pitcher", "chocolate", "spoon", "fabric_veil", "bag"],
+      cameraAngle: ["front", "three_quarter", "side", "top", "low"],
+      compositionMotion: ["static", "semi_dynamic", "dynamic"],
+      compositionDensity: ["low", "medium", "high", "very_high"]
+    };
+
+    const WEIGHTS = {
+      anchor: 0.4,
+      frame: 0.2,
+      physical: 0.18,
+      support: 0.14,
+      lexical: 0.08
+    };
+
+    const UI_OVERRIDES = {
+      case_001: {
+        productPanel: [
+          { packaging: "Бутылка", color: "Мятный", material: "Пластик", size: "D3", form: "вытянутый прямоугольник" },
+          { packaging: "Тюбик", color: "Голубой", material: "Пластик", size: "D3", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["влажная", "стерильная"],
+        styles: ["клиническая", "влажная эстетика"],
+        presentation: "подача премиум",
+        compositionDensity: "разреженная",
+        compositionDynamics: "статичная",
+        cover: "да",
+        setMaterials: ["стекло", "вода"],
+        setTextures: ["мокрая", "прозрачная"],
+        setForms: ["вертикали", "цилиндры"],
+        searchTerms: ["clinical", "wet look", "premium", "clean"]
+      },
+      case_002: {
+        productPanel: [
+          { packaging: "Бутылка", color: "Светло-зеленый", material: "Стекло", size: "D3", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["солнечная", "чистая"],
+        styles: ["чистый коммерческий", "скульптурный"],
+        presentation: "подача премиум",
+        compositionDensity: "разреженная",
+        compositionDynamics: "статичная",
+        cover: "да",
+        setMaterials: ["металл"],
+        setTextures: ["гладкая"],
+        setForms: ["круг", "вид сверху"],
+        searchTerms: ["sunlight", "premium", "metal tray", "top layout"]
+      },
+      case_003: {
+        productPanel: [
+          { packaging: "Тюбик", color: "Кремовый", material: "Пластик", size: "D2", form: "вытянутый прямоугольник" },
+          { packaging: "Тюбик", color: "Бежевый", material: "Пластик", size: "D2", form: "вытянутый прямоугольник" },
+          { packaging: "Тюбик", color: "Серебро", material: "Пластик", size: "D2", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["студийная", "чистая"],
+        styles: ["чистый коммерческий", "скульптурный"],
+        presentation: "подача премиум",
+        compositionDensity: "плотная",
+        compositionDynamics: "статичная",
+        cover: "да",
+        setMaterials: ["твердая подставка"],
+        setTextures: ["гладкая"],
+        setForms: ["вертикали"],
+        searchTerms: ["three tubes", "product drip", "studio beauty"]
+      },
+      case_004: {
+        productPanel: [
+          { packaging: "Бутылка", color: "Белый", material: "Пластик", size: "D4", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["домашняя", "теплая"],
+        styles: ["натуральный", "скульптурный"],
+        presentation: "подача масс",
+        compositionDensity: "разреженная",
+        compositionDynamics: "статичная",
+        cover: "нет",
+        setMaterials: ["металл", "керамика"],
+        setTextures: ["гладкая"],
+        setForms: ["овал", "круг"],
+        searchTerms: ["natural", "home", "tray", "soap shell"]
+      },
+      case_005: {
+        productPanel: [
+          { packaging: "Бутылка", color: "Белый", material: "Пластик", size: "D4", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["свежая", "влажная"],
+        styles: ["чистый коммерческий", "натуральный"],
+        presentation: "подача масс",
+        compositionDensity: "средняя",
+        compositionDynamics: "статичная",
+        cover: "нет",
+        setMaterials: ["плитка", "текстиль"],
+        setTextures: ["мокрая", "пористая"],
+        setForms: ["горизонтали", "полка"],
+        searchTerms: ["bath", "fresh", "shelf", "foam", "sponge"]
+      },
+      case_006: {
+        productPanel: [
+          { packaging: "Тюбик", color: "Белый", material: "Алюминий", size: "D2", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["мягкая", "воздушная"],
+        styles: ["минималистичный", "цветочный акцент"],
+        presentation: "подача премиум",
+        compositionDensity: "разреженная",
+        compositionDynamics: "статичная",
+        cover: "да",
+        setMaterials: ["растение"],
+        setTextures: ["мягкая"],
+        setForms: ["вертикаль", "ветка"],
+        searchTerms: ["minimal", "floral", "airy", "beauty"]
+      },
+      case_007: {
+        productPanel: [
+          { packaging: "Тюбик", color: "Белый", material: "Пластик", size: "D2", form: "вытянутый прямоугольник" },
+          { packaging: "Коробка", color: "Красный", material: "Картон", size: "D2", form: "прямоугольник" }
+        ],
+        atmosphere: ["драматичная", "контрастная"],
+        styles: ["графичный", "hero advertising"],
+        presentation: "подача премиум",
+        compositionDensity: "средняя",
+        compositionDynamics: "статичная",
+        cover: "да",
+        setMaterials: ["акрил", "камень"],
+        setTextures: ["гладкая"],
+        setForms: ["прямоугольники", "блоки"],
+        searchTerms: ["graphic", "hero", "red set design", "contrast"]
+      },
+      case_008: {
+        productPanel: [
+          { packaging: "Тюбик", color: "Желтый", material: "Алюминий", size: "D2", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["яркая", "напряженная"],
+        styles: ["графичный", "трендовый"],
+        presentation: "подача премиум",
+        compositionDensity: "плотная",
+        compositionDynamics: "динамичная",
+        cover: "да",
+        setMaterials: ["только упаковка"],
+        setTextures: ["гладкая"],
+        setForms: ["повтор", "диагонали"],
+        searchTerms: ["bold", "expression", "trend-driven", "yellow tubes", "repetition"]
+      },
+      case_009: {
+        productPanel: [
+          { packaging: "Бутылка", color: "Белый", material: "Пластик", size: "D3", form: "вытянутый прямоугольник" },
+          { packaging: "Бутылка", color: "Светло-серый", material: "Пластик", size: "D3", form: "вытянутый прямоугольник" }
+        ],
+        atmosphere: ["влажная", "мечтательная"],
+        styles: ["влажная эстетика", "чистый коммерческий"],
+        presentation: "подача премиум",
+        compositionDensity: "разреженная",
+        compositionDynamics: "статичная",
+        cover: "да",
+        setMaterials: ["вода"],
+        setTextures: ["прозрачная", "мокрая"],
+        setForms: ["вертикали", "водная линия"],
+        searchTerms: ["shampoo", "balm", "underwater", "soft premium"]
+      },
+      case_010: {
+        productPanel: [
+          { packaging: "Баночка", color: "Белый", material: "Пластик", size: "D3", form: "квадрат" }
+        ],
+        atmosphere: ["драматичная", "влажная"],
+        styles: ["hero advertising", "влажная эстетика"],
+        presentation: "подача премиум",
+        compositionDensity: "средняя",
+        compositionDynamics: "динамичная",
+        cover: "да",
+        setMaterials: ["вода"],
+        setTextures: ["мокрая", "брызги"],
+        setForms: ["струя", "круг"],
+        searchTerms: ["pouring water", "hero", "splash", "action"]
+      }
+    };
+
+    const FILTER_SECTIONS = [
+      {
+        title: "Продукт",
+        filters: [
+          { id: "productCategory", label: "категория", getValues: entry => unique(entry.expected.product_items.map(item => item.category || "not_collected")), display: value => labelMap("category", value) },
+          { id: "viewType", label: "тип упаковки", getValues: entry => entry.expected.product_items.map(item => item.view_type), display: value => labelMap("viewType", value) },
+          { id: "productColor", label: "цвет", getValues: entry => entry.expected.product_colors || [], display: value => labelMap("color", value) },
+          { id: "material", label: "материал", getValues: entry => entry.library.productPanel.map(item => item.material), display: value => value },
+          { id: "productSize", label: "размер", getValues: entry => entry.library.productPanel.map(item => item.size), display: value => value },
+          { id: "productForm", label: "форма", getValues: entry => entry.library.productPanel.map(item => item.form), display: value => value }
+        ]
+      },
+      {
+        title: "Кроп",
+        filters: [
+          { id: "cropType", label: "кроп", getValues: entry => [entry.expected.crop_type], display: value => labelMap("cropType", value) }
+        ]
+      },
+      {
+        title: "Тип кадра",
+        filters: [
+          { id: "frameType", label: "тип", getValues: entry => [entry.expected.frame_type], display: value => labelMap("frameType", value) }
+        ]
+      },
+      {
+        title: "Количество продуктов",
+        filters: [
+          { id: "countBucket", label: "счётчик", getValues: entry => [entry.expected.product_package_count_bucket], display: value => value }
+        ]
+      },
+      {
+        title: "Световая схема",
+        filters: [
+          { id: "lightCharacter", label: "характер света", getValues: entry => [entry.expected.light_character], display: value => labelMap("lightCharacter", value) },
+          { id: "lightDirection", label: "направление", getValues: entry => [entry.expected.light_direction], display: value => labelMap("lightDirection", value) },
+          { id: "lightPattern", label: "световой рисунок", getValues: entry => [entry.expected.light_pattern], display: value => labelMap("lightPattern", value) }
+        ]
+      },
+      {
+        title: "Цветовая палитра",
+        filters: [
+          { id: "paletteRelationship", label: "сочетания", getValues: entry => [entry.expected.palette_relationship], display: value => labelMap("paletteRelationship", value) }
+        ]
+      },
+      {
+        title: "Подача",
+        filters: [
+          { id: "presentation", label: "подача", getValues: entry => entry.library.presentation ? [entry.library.presentation] : [], display: value => labelMap("presentation", value) }
+        ]
+      },
+      {
+        title: "Стилистика",
+        filters: [
+          { id: "style", label: "стиль", getValues: entry => entry.library.styles || [], display: value => labelMap("style", value) }
+        ]
+      },
+      {
+        title: "Сет-дизайн",
+        filters: [
+          { id: "prop", label: "реквизит", getValues: entry => canonicalProps(entry.expected.props), display: value => labelMap("prop", value) }
+        ]
+      },
+      {
+        title: "Ракурс",
+        filters: [
+          { id: "cameraAngle", label: "ракурс", getValues: entry => [entry.expected.camera_angle], display: value => labelMap("cameraAngle", value) }
+        ]
+      },
+      {
+        title: "Композиция",
+        filters: [
+          { id: "compositionMotion", label: "динамика", getValues: entry => entry.library.compositionMotion ? [entry.library.compositionMotion] : [], display: value => labelMap("compositionMotion", value) },
+          { id: "compositionDensity", label: "плотность", getValues: entry => entry.library.compositionDensity ? [entry.library.compositionDensity] : [], display: value => labelMap("compositionDensity", value) }
+        ]
+      },
+    ];
+
+    const state = {
+      entries: [],
+      filterState: {},
+      sectionOpen: {},
+      selectedId: null,
+      lastQuery: "",
+      lastFallback: false
+    };
+
+    function normalize(text) {
+      return (text || "")
+        .toLowerCase()
+        .replace(/ё/g, "е")
+        .replace(/[,+]/g, " + ")
+        .replace(/[()]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function average(values) {
+      if (!values.length) return null;
+      return values.reduce((sum, value) => sum + value, 0) / values.length;
+    }
+
+    function labelMap(group, key) {
+      if (key === null || key === undefined) return "—";
+      return (DISPLAY[group] && DISPLAY[group][key]) || key;
+    }
+
+    function percent(value) {
+      if (value === null || value === undefined || Number.isNaN(value)) return "—";
+      return `${Math.round(value * 100)}%`;
+    }
+
+    function unique(values) {
+      return Array.from(new Set(values.filter(Boolean)));
+    }
+
+    const CANONICAL_PROPS = new Set(["tableware", "podium", "shelf", "stone"]);
+
+    const LEGACY_CROP_MAP = {
+      "Без кропа": "no_crop",
+      "Loose crop": "loose_crop",
+      "Tight crop": "tight_crop",
+      "Partial crop": "partial_crop"
+    };
+
+    const LEGACY_VIEW_TYPE_MAP = {
+      "pump_bottle": "bottle",
+      "carton_box": "box"
+    };
+
+    const FIXTURE_PATCHES = {
+      case_001: {
+        light_character: "soft",
+        light_direction: "back",
+        crop_type: "tight_crop"
+      },
+      case_002: {
+        crop_type: "no_crop"
+      },
+      case_003: {
+        crop_type: "no_crop"
+      },
+      case_004: {
+        crop_type: "no_crop"
+      },
+      case_005: {
+        crop_type: "no_crop"
+      },
+      case_006: {
+        crop_type: "no_crop"
+      },
+      case_007: {
+        crop_type: "no_crop",
+        props: ["stone"]
+      },
+      case_008: {
+        crop_type: "partial_crop"
+      },
+      case_009: {
+        light_character: "hard",
+        light_direction: "top",
+        crop_type: "tight_crop"
+      },
+      case_010: {
+        crop_type: "no_crop"
+      }
+    };
+
+    function canonicalProps(values) {
+      return unique((values || []).map(value => {
+        if (value === "tray" || value === "cutlery" || value === "tableware") return "tableware";
+        return value;
+      }).filter(value => CANONICAL_PROPS.has(value)));
+    }
+
+    function canonicalMaterial(value) {
+      if (!value) return value;
+      const normalized = normalize(String(value));
+      if (normalized === "картон" || normalized === "бумага" || normalized === "картон / бумага" || normalized === "картон/бумага") {
+        return "Картон / бумага";
+      }
+      return value;
+    }
+
+    function normalizeExpected(entry) {
+      const expected = JSON.parse(JSON.stringify(entry.expected || {}));
+
+      if (expected.crop_type && LEGACY_CROP_MAP[expected.crop_type]) {
+        expected.crop_type = LEGACY_CROP_MAP[expected.crop_type];
+      }
+
+      expected.product_items = (expected.product_items || []).map(item => ({
+        ...item,
+        view_type: LEGACY_VIEW_TYPE_MAP[item.view_type] || item.view_type
+      }));
+
+      const patch = FIXTURE_PATCHES[entry.id] || {};
+      return {
+        ...expected,
+        ...patch,
+        product_items: patch.product_items || expected.product_items,
+        props: patch.props || expected.props || [],
+        objects: expected.objects || [],
+        product_colors: expected.product_colors || [],
+        scene_terms: expected.scene_terms || [],
+        notes: expected.notes || []
+      };
+    }
+
+    function setIfMatch(query, patterns, callback) {
+      for (const pattern of patterns) {
+        if (query.includes(pattern)) {
+          callback();
+          return true;
+        }
+      }
+      return false;
+    }
+
+    function prepareEntry(entry) {
+      const override = UI_OVERRIDES[entry.id] || {};
+      const expected = normalizeExpected(entry);
+      const fallbackPanel = expected.product_items.map((item, index) => ({
+        packaging: labelMap("viewType", item.view_type),
+        color: labelMap("color", (expected.product_colors || [])[Math.min(index, (expected.product_colors || []).length - 1)] || (expected.product_colors || [])[0] || "—"),
+        material: "Не назначено",
+        size: "Не назначено",
+        form: "Не назначено",
+        category: item.category || "not_collected"
+      }));
+
+      const library = {
+        sourceMeta: {
+          sourceTitle: entry.source?.source_title || entry.source_title || "не указано",
+          authorName: entry.source?.author_name || entry.author_name || "noname",
+          studioName: entry.source?.studio_name || entry.studio_name || "noname"
+        },
+        productPanel: (entry.product_panel || override.productPanel || fallbackPanel).map((item, index) => ({
+          ...item,
+          material: canonicalMaterial(item.material),
+          category: item.category || expected.product_items[index]?.category || expected.product_items[0]?.category || "not_collected"
+        })),
+        presentation: entry.presentation || null,
+        styles: entry.styles || [],
+        compositionMotion: entry.composition_motion_state || null,
+        compositionDensity: entry.composition_density || null,
+        parkedLayers: [
+          "finish parked",
+          "cover parked",
+          "shot scale removed"
+        ]
+      };
+
+      return { ...entry, expected, library };
+    }
+
+    function buildLexicalCorpus(entry) {
+      const expected = entry.expected;
+      const library = entry.library;
+      const bits = [
+        entry.title,
+        entry.summary,
+        expected.frame_type,
+        expected.crop_type,
+        labelMap("cameraAngle", expected.camera_angle),
+        labelMap("lightCharacter", expected.light_character),
+        labelMap("lightDirection", expected.light_direction),
+        labelMap("lightPattern", expected.light_pattern),
+        labelMap("paletteRelationship", expected.palette_relationship),
+        labelMap("gradientClass", expected.gradient_class),
+        ...(expected.product_colors || []).map(value => labelMap("color", value)),
+        ...(expected.scene_terms || []).map(value => labelMap("sceneTerm", value)),
+        ...expected.product_items.map(item => labelMap("viewType", item.view_type)),
+        ...canonicalProps(expected.props).map(value => labelMap("prop", value)),
+        ...expected.objects.map(value => labelMap("object", value)),
+        ...library.productPanel.map(item => item.packaging),
+        ...library.productPanel.map(item => labelMap("category", item.category)),
+        ...library.productPanel.map(item => item.color),
+        ...library.productPanel.map(item => item.material),
+        ...library.productPanel.map(item => item.size),
+        ...library.productPanel.map(item => item.form),
+        library.presentation ? labelMap("presentation", library.presentation) : "",
+        ...(library.styles || []).map(value => labelMap("style", value)),
+        library.compositionMotion ? labelMap("compositionMotion", library.compositionMotion) : "",
+        library.compositionDensity ? labelMap("compositionDensity", library.compositionDensity) : "",
+        ...expected.notes
+      ];
+      return normalize(bits.filter(Boolean).join(" "));
+    }
+
+    function lexicalScore(corpus, tokens) {
+      if (!tokens.length) return null;
+      let hits = 0;
+      for (const token of tokens) {
+        if (corpus.includes(token)) hits += 1;
+      }
+      return hits / tokens.length;
+    }
+
+    function parseQuery(rawQuery) {
+      const query = normalize(rawQuery);
+      const parsed = {
+        raw: rawQuery,
+        normalized: query,
+        countBucket: null,
+        frameTypes: new Set(),
+        cropTypes: new Set(),
+        cameraAngles: new Set(),
+        lightCharacters: new Set(),
+        lightDirections: new Set(),
+        colors: new Set(),
+        sceneTerms: new Set(),
+        viewTypes: new Set(),
+        props: new Set(),
+        objects: new Set(),
+        lexicalTokens: []
+      };
+
+      if (!query) return parsed;
+
+      if (/(4\+|четыре \+|четыре плюс|4 plus|4plus)/.test(query)) parsed.countBucket = "4+";
+      else if (/\b4\b|четыре/.test(query)) parsed.countBucket = "4";
+      else if (/\b3\b|три/.test(query)) parsed.countBucket = "3";
+      else if (/\b2\b|две|два/.test(query)) parsed.countBucket = "2";
+      else if (/\b1\b|один|одна/.test(query)) parsed.countBucket = "1";
+
+      setIfMatch(query, ["product-only", "только продукт"], () => parsed.frameTypes.add("Product-only"));
+      setIfMatch(query, ["product + decor", "product+decor", "декор"], () => parsed.frameTypes.add("Product + decor"));
+      setIfMatch(query, ["product + texture", "product+texture", "текстур", "мазок"], () => parsed.frameTypes.add("Product + texture"));
+      setIfMatch(query, ["product + action", "product+action", "action", "действие"], () => parsed.frameTypes.add("Product + action"));
+      setIfMatch(query, ["product + hand", "product+hand", "продукт в руке", "в руке"], () => parsed.frameTypes.add("Product + hand"));
+      setIfMatch(query, ["detail-only", "detail only", "фрагмент"], () => parsed.frameTypes.add("Detail-only"));
+      setIfMatch(query, ["product set", "сет", "несколько продуктов"], () => parsed.frameTypes.add("Product set"));
+
+      setIfMatch(query, ["без кропа", "no crop"], () => parsed.cropTypes.add("no_crop"));
+      setIfMatch(query, ["loose crop", "воздух вокруг", "свободный кроп"], () => parsed.cropTypes.add("loose_crop"));
+      setIfMatch(query, ["tight crop", "tight", "плотный кроп"], () => parsed.cropTypes.add("tight_crop"));
+      setIfMatch(query, ["partial crop", "fragment", "partial", "частичный кроп"], () => parsed.cropTypes.add("partial_crop"));
+
+      setIfMatch(query, ["top view", "top", "сверху"], () => parsed.cameraAngles.add("top"));
+      setIfMatch(query, ["front", "frontal", "фронт"], () => parsed.cameraAngles.add("front"));
+      setIfMatch(query, ["3/4", "three-quarter", "quarter"], () => parsed.cameraAngles.add("three_quarter"));
+      setIfMatch(query, ["side view", "side", "сбоку", "боком"], () => parsed.cameraAngles.add("side"));
+      setIfMatch(query, ["low angle", "снизу"], () => parsed.cameraAngles.add("low"));
+
+      setIfMatch(query, ["очень мягкий", "very soft"], () => parsed.lightCharacters.add("very_soft"));
+      setIfMatch(query, ["мягкий", "soft"], () => parsed.lightCharacters.add("soft"));
+      setIfMatch(query, ["жесткий", "жёсткий", "hard"], () => parsed.lightCharacters.add("hard"));
+      setIfMatch(query, ["солнечный", "sunlight"], () => parsed.lightCharacters.add("sunlight"));
+
+      setIfMatch(query, ["боковой свет", "side light"], () => parsed.lightDirections.add("side"));
+      setIfMatch(query, ["фронтальный свет", "frontal light", "front light"], () => parsed.lightDirections.add("frontal"));
+      setIfMatch(query, ["верхний свет", "top light"], () => parsed.lightDirections.add("top"));
+      setIfMatch(query, ["контровой", "back light"], () => parsed.lightDirections.add("back"));
+
+      setIfMatch(query, ["белый", "white"], () => parsed.colors.add("white"));
+      setIfMatch(query, ["черный", "чёрный", "black"], () => parsed.colors.add("black"));
+      setIfMatch(query, ["серебр", "silver"], () => parsed.colors.add("silver"));
+      setIfMatch(query, ["мятн", "mint"], () => parsed.colors.add("mint"));
+      setIfMatch(query, ["голуб", "light blue", "light_blue"], () => parsed.colors.add("light_blue"));
+      setIfMatch(query, ["зелен", "green", "sage"], () => parsed.colors.add("sage_green"));
+      setIfMatch(query, ["кремов", "cream color"], () => parsed.colors.add("cream"));
+      setIfMatch(query, ["беж", "beige"], () => parsed.colors.add("beige"));
+      setIfMatch(query, ["красн", "red"], () => parsed.colors.add("red"));
+      setIfMatch(query, ["желт", "yellow"], () => parsed.colors.add("yellow"));
+      setIfMatch(query, ["серый", "gray", "grey"], () => parsed.colors.add("soft_gray"));
+      setIfMatch(query, ["синий", "blue"], () => parsed.colors.add("blue"));
+
+      setIfMatch(query, ["тюбик", "tube"], () => parsed.viewTypes.add("tube"));
+      setIfMatch(query, ["баночка", "jar"], () => parsed.viewTypes.add("jar"));
+      setIfMatch(query, ["коробка", "box"], () => parsed.viewTypes.add("box"));
+      setIfMatch(query, ["бутылка", "bottle", "флакон с помпой", "pump bottle", "pump_bottle"], () => parsed.viewTypes.add("bottle"));
+      if (!query.includes("бутылка")) setIfMatch(query, ["флакон", "vial"], () => parsed.viewTypes.add("vial"));
+
+      setIfMatch(query, ["поднос", "tray", "посуда", "tableware", "приборы", "cutlery", "чашка", "кружка", "бокал"], () => parsed.props.add("tableware"));
+      setIfMatch(query, ["подиум", "podium"], () => parsed.props.add("podium"));
+      setIfMatch(query, ["полка", "shelf"], () => parsed.props.add("shelf"));
+      setIfMatch(query, ["камни", "камень", "stone"], () => parsed.props.add("stone"));
+
+      setIfMatch(query, ["цветок", "flower"], () => parsed.objects.add("flower"));
+      setIfMatch(query, ["ракушка"], () => parsed.objects.add("shell_soap"));
+      setIfMatch(query, ["перец", "pepper"], () => parsed.objects.add("pepper"));
+      setIfMatch(query, ["губка", "sponge"], () => parsed.objects.add("sponge"));
+      setIfMatch(query, ["щетка", "щётка", "brush"], () => parsed.objects.add("brush"));
+      setIfMatch(query, ["пена", "foam"], () => parsed.objects.add("foam"));
+
+      setIfMatch(query, ["вода", "water"], () => parsed.sceneTerms.add("water"));
+      setIfMatch(query, ["мокрое стекло", "wet glass"], () => parsed.sceneTerms.add("wet_glass"));
+      setIfMatch(query, ["металл", "metal"], () => parsed.sceneTerms.add("metal"));
+      setIfMatch(query, ["отражение", "reflection"], () => parsed.sceneTerms.add("reflection"));
+      setIfMatch(query, ["ванная", "bath"], () => parsed.sceneTerms.add("bath"));
+      setIfMatch(query, ["красный фон", "red background"], () => parsed.sceneTerms.add("red_background"));
+      setIfMatch(query, ["в воде", "underwater"], () => parsed.sceneTerms.add("underwater"));
+      setIfMatch(query, ["льющаяся вода", "pouring"], () => parsed.sceneTerms.add("pouring"));
+
+      parsed.lexicalTokens = query
+        .split(" ")
+        .filter(token => token.length > 1)
+        .filter(token => !["и", "в", "на", "с", "по", "под", "за", "для", "the", "a", "an", "+"].includes(token));
+
+      return parsed;
+    }
+
+    function recognizedClauseCount(parsed) {
+      return (
+        (parsed.countBucket ? 1 : 0) +
+        parsed.frameTypes.size +
+        parsed.cropTypes.size +
+        parsed.cameraAngles.size +
+        parsed.lightCharacters.size +
+        parsed.lightDirections.size +
+        parsed.colors.size +
+        parsed.sceneTerms.size +
+        parsed.viewTypes.size +
+        parsed.props.size +
+        parsed.objects.size
+      );
+    }
+
+    function getCoreSets(entry) {
+      const expected = entry.expected;
+      return {
+        colors: new Set(expected.product_colors || []),
+        sceneTerms: new Set(expected.scene_terms || []),
+        viewTypes: new Set(expected.product_items.map(item => item.view_type)),
+        props: new Set(canonicalProps(expected.props)),
+        objects: new Set(expected.objects || [])
+      };
+    }
+
+    function exactOrNull(expected, set) {
+      if (!set.size) return null;
+      return set.has(expected) ? 1 : 0;
+    }
+
+    function inclusionScore(expectedSet, querySet) {
+      if (!querySet.size) return null;
+      let hits = 0;
+      for (const item of querySet) {
+        if (expectedSet.has(item)) hits += 1;
+      }
+      return hits / querySet.size;
+    }
+
+    function passesHardFilters(entry, parsed, mode = "full") {
+      const expected = entry.expected;
+      if (parsed.countBucket && expected.product_package_count_bucket !== parsed.countBucket) return false;
+      if (parsed.frameTypes.size && !parsed.frameTypes.has(expected.frame_type)) return false;
+      if (mode === "full") {
+        if (parsed.cropTypes.size && !parsed.cropTypes.has(expected.crop_type)) return false;
+        if (parsed.cameraAngles.size && !parsed.cameraAngles.has(expected.camera_angle)) return false;
+      }
+      return true;
+    }
+
+    function scoreEntry(entry, parsed) {
+      const expected = entry.expected;
+      const sets = getCoreSets(entry);
+      const lexical = lexicalScore(buildLexicalCorpus(entry), parsed.lexicalTokens);
+      const structuredCount = recognizedClauseCount(parsed);
+
+      if (structuredCount === 0) {
+        return {
+          keep: lexical !== null ? lexical > 0 : true,
+          bundles: { anchor: null, frame: null, physical: null, support: null, lexical },
+          score: lexical || 0
+        };
+      }
+
+      const anchorParts = [];
+      const frameParts = [];
+      const physicalParts = [];
+      const supportParts = [];
+
+      const countScore = parsed.countBucket ? (expected.product_package_count_bucket === parsed.countBucket ? 1 : 0) : null;
+      if (countScore !== null) anchorParts.push(countScore);
+
+      const frameTypeScore = exactOrNull(expected.frame_type, parsed.frameTypes);
+      if (frameTypeScore !== null) anchorParts.push(frameTypeScore);
+
+      const viewTypeScore = inclusionScore(sets.viewTypes, parsed.viewTypes);
+      if (viewTypeScore !== null) anchorParts.push(viewTypeScore);
+
+      const cropScore = exactOrNull(expected.crop_type, parsed.cropTypes);
+      if (cropScore !== null) frameParts.push(cropScore);
+
+      const angleScore = exactOrNull(expected.camera_angle, parsed.cameraAngles);
+      if (angleScore !== null) frameParts.push(angleScore);
+
+      const lightCharacterScore = exactOrNull(expected.light_character, parsed.lightCharacters);
+      if (lightCharacterScore !== null) physicalParts.push(lightCharacterScore);
+
+      const lightDirectionScore = exactOrNull(expected.light_direction, parsed.lightDirections);
+      if (lightDirectionScore !== null) physicalParts.push(lightDirectionScore);
+
+      const colorScore = inclusionScore(sets.colors, parsed.colors);
+      if (colorScore !== null) physicalParts.push(colorScore);
+
+      const sceneTermScore = inclusionScore(sets.sceneTerms, parsed.sceneTerms);
+      if (sceneTermScore !== null) physicalParts.push(sceneTermScore);
+
+      const propScore = inclusionScore(sets.props, parsed.props);
+      if (propScore !== null) supportParts.push(propScore);
+
+      const objectScore = inclusionScore(sets.objects, parsed.objects);
+      if (objectScore !== null) supportParts.push(objectScore);
+
+      const bundles = {
+        anchor: average(anchorParts),
+        frame: average(frameParts),
+        physical: average(physicalParts),
+        support: average(supportParts),
+        lexical
+      };
+
+      if (bundles.anchor !== null && bundles.anchor === 0) return { keep: false, bundles, score: 0 };
+
+      let weightedSum = 0;
+      let activeWeight = 0;
+      for (const [bundle, weight] of Object.entries(WEIGHTS)) {
+        if (bundles[bundle] !== null) {
+          weightedSum += bundles[bundle] * weight;
+          activeWeight += weight;
+        }
+      }
+
+      const score = activeWeight ? (weightedSum / activeWeight) : 0;
+      return { keep: score > 0 || (lexical !== null && lexical > 0), bundles, score };
+    }
+
+    function runSearch(entries, parsed) {
+      const structuredCount = recognizedClauseCount(parsed);
+      if (structuredCount === 0) {
+        const scored = entries
+          .map(entry => ({ ...entry, ...scoreEntry(entry, parsed) }))
+          .filter(entry => entry.keep)
+          .sort((a, b) => (b.score || 0) - (a.score || 0) || a.title.localeCompare(b.title, "ru"));
+        return { scored, fallbackUsed: Boolean(parsed.normalized && scored.length > 0) };
+      }
+
+      const primary = entries.filter(entry => passesHardFilters(entry, parsed, "full"));
+      let fallbackUsed = false;
+      let candidates = primary;
+
+      if (!primary.length) {
+        const secondaryFiltersPresent =
+          parsed.cropTypes.size ||
+          parsed.cameraAngles.size;
+
+        if (secondaryFiltersPresent) {
+          fallbackUsed = true;
+          candidates = entries.filter(entry => passesHardFilters(entry, parsed, "core"));
+        }
+      }
+
+      const scored = candidates
+        .map(entry => ({ ...entry, ...scoreEntry(entry, parsed) }))
+        .filter(entry => entry.keep)
+        .sort((a, b) => (b.score || 0) - (a.score || 0) || a.title.localeCompare(b.title, "ru"));
+
+      return { scored, fallbackUsed };
+    }
+
+    function getActiveFiltersCount() {
+      return Object.values(state.filterState).reduce((sum, set) => sum + set.size, 0);
+    }
+
+    function getFilterValues(filter, entry) {
+      return unique(filter.getValues(entry));
+    }
+
+    function entryMatchesFacetFilters(entry) {
+      for (const section of FILTER_SECTIONS) {
+        for (const filter of section.filters) {
+          const selected = state.filterState[filter.id];
+          if (!selected || !selected.size) continue;
+          const values = getFilterValues(filter, entry);
+          if (!values.some(value => selected.has(value))) return false;
+        }
+      }
+      return true;
+    }
+
+    function collectOptions(filter) {
+      const counts = new Map();
+      for (const entry of state.entries) {
+        for (const value of getFilterValues(filter, entry)) {
+          counts.set(value, (counts.get(value) || 0) + 1);
+        }
+      }
+
+      const schemaValues = FILTER_TAXONOMY[filter.id] || [];
+      for (const value of schemaValues) {
+        if (!counts.has(value)) counts.set(value, 0);
+      }
+
+      return Array.from(counts.entries())
+        .map(([value, count]) => ({ value, count, label: filter.display(value) }))
+        .sort((a, b) => a.label.localeCompare(b.label, "ru"));
+    }
+
+    function renderFilters() {
+      const container = document.getElementById("filterStack");
+      container.innerHTML = FILTER_SECTIONS.map(section => {
+        const isOpen = state.sectionOpen[section.title] === true;
+        return `
+          <details class="filter-section" data-section-title="${escapeAttribute(section.title)}" ${isOpen ? "open" : ""}>
+            <summary class="filter-summary">
+              <strong>${section.title}</strong>
+              <span class="summary-meta">${section.filters.length} blocks</span>
+            </summary>
+            <div class="filter-body">
+              ${section.filters.map(filter => {
+                const options = collectOptions(filter);
+                return `
+                  <div class="filter-group">
+                    <div class="filter-label">${filter.label}</div>
+                    <div class="option-list">
+                      ${options.map(option => {
+                        const checked = state.filterState[filter.id] && state.filterState[filter.id].has(option.value) ? "checked" : "";
+                        return `
+                          <label class="option">
+                            <input type="checkbox" data-filter-id="${filter.id}" data-filter-value="${escapeAttribute(option.value)}" ${checked}>
+                            <span>${option.label}</span>
+                            <small>${option.count}</small>
+                          </label>
+                        `;
+                      }).join("")}
+                    </div>
+                  </div>
+                `;
+              }).join("")}
+            </div>
+          </details>
+        `;
+      }).join("");
+
+      container.querySelectorAll("input[type='checkbox']").forEach(input => {
+        input.addEventListener("change", event => {
+          const filterId = event.target.dataset.filterId;
+          const value = event.target.dataset.filterValue;
+          if (!state.filterState[filterId]) state.filterState[filterId] = new Set();
+          if (event.target.checked) state.filterState[filterId].add(value);
+          else state.filterState[filterId].delete(value);
+          run();
+        });
+      });
+
+      container.querySelectorAll("details.filter-section").forEach(sectionNode => {
+        sectionNode.addEventListener("toggle", () => {
+          const title = sectionNode.dataset.sectionTitle;
+          state.sectionOpen[title] = sectionNode.open;
+        });
+      });
+    }
+
+    function escapeAttribute(value) {
+      return String(value).replaceAll('"', "&quot;");
+    }
+
+    function renderActiveChips(parsed) {
+      const filterNode = document.getElementById("activeFilterChips");
+      const queryNode = document.getElementById("activeQueryChips");
+      const activeFilters = [];
+      for (const section of FILTER_SECTIONS) {
+        for (const filter of section.filters) {
+          const selected = state.filterState[filter.id];
+          if (!selected || !selected.size) continue;
+          for (const value of selected) {
+            activeFilters.push({
+              filterId: filter.id,
+              value,
+              text: `${filter.label}: ${filter.display(value)}`
+            });
+          }
+        }
+      }
+
+      const queryChips = [];
+      if (parsed.countBucket) queryChips.push(`count: ${parsed.countBucket}`);
+      for (const frameType of parsed.frameTypes) queryChips.push(`type: ${labelMap("frameType", frameType)}`);
+      for (const cropType of parsed.cropTypes) queryChips.push(`crop: ${labelMap("cropType", cropType)}`);
+      for (const angle of parsed.cameraAngles) queryChips.push(`angle: ${labelMap("cameraAngle", angle)}`);
+      for (const light of parsed.lightDirections) queryChips.push(`light: ${labelMap("lightDirection", light)}`);
+      for (const color of parsed.colors) queryChips.push(`color: ${labelMap("color", color)}`);
+      for (const term of parsed.sceneTerms) queryChips.push(`scene: ${labelMap("sceneTerm", term)}`);
+      for (const viewType of parsed.viewTypes) queryChips.push(`pack: ${labelMap("viewType", viewType)}`);
+      for (const prop of parsed.props) queryChips.push(`prop: ${labelMap("prop", prop)}`);
+      for (const object of parsed.objects) queryChips.push(`object: ${labelMap("object", object)}`);
+
+      filterNode.innerHTML = activeFilters.length
+        ? activeFilters.map(item => `
+            <button
+              type="button"
+              class="chip active removable"
+              data-remove-filter-id="${escapeAttribute(item.filterId)}"
+              data-remove-filter-value="${escapeAttribute(item.value)}"
+              aria-label="Убрать фильтр ${escapeAttribute(item.text)}"
+              title="Убрать фильтр"
+            >
+              <span>${item.text}</span>
+              <span class="chip-close">×</span>
+            </button>
+          `).join("")
+        : `<span class="chip">Нет активных фильтров</span>`;
+
+      queryNode.innerHTML = queryChips.length
+        ? queryChips.map(text => `<span class="chip">${text}</span>`).join("")
+        : (parsed.normalized ? `<span class="chip">Свободный lexical query: ${parsed.raw}</span>` : `<span class="chip">Свободный просмотр библиотеки</span>`);
+
+      filterNode.querySelectorAll("[data-remove-filter-id]").forEach(button => {
+        button.addEventListener("click", () => {
+          const filterId = button.dataset.removeFilterId;
+          const value = button.dataset.removeFilterValue;
+          const selected = state.filterState[filterId];
+          if (!selected) return;
+          selected.delete(value);
+          run();
+        });
+      });
+
+      document.getElementById("filterSummary").textContent = `${getActiveFiltersCount()} active`;
+    }
+
+    function renderResults(entries, parsed, fallbackUsed) {
+      const grid = document.getElementById("resultsGrid");
+      const query = document.getElementById("queryInput").value.trim();
+      const filteredEntries = state.entries.filter(entryMatchesFacetFilters);
+      const usingQuery = Boolean(query);
+
+      const results = usingQuery
+        ? runSearch(filteredEntries, parsed).scored
+        : filteredEntries.map(entry => ({
+            ...entry,
+            bundles: { anchor: null, frame: null, physical: null, support: null, lexical: null },
+            score: null
+          }));
+
+      const actualFallback = usingQuery ? runSearch(filteredEntries, parsed).fallbackUsed : false;
+      state.lastFallback = actualFallback;
+
+      document.getElementById("libraryCountTop").textContent = String(state.entries.length);
+      document.getElementById("resultsCountPill").textContent = `${results.length} visible`;
+      document.getElementById("modePill").textContent = usingQuery ? "search mode" : "free browse";
+      document.getElementById("fallbackPill").textContent = actualFallback ? "fallback active" : "no fallback";
+
+      const summaryBits = [];
+      if (usingQuery) summaryBits.push(`Запрос: “${query}”`);
+      if (getActiveFiltersCount()) summaryBits.push(`фильтров: ${getActiveFiltersCount()}`);
+      summaryBits.push(`видно: ${results.length} / ${state.entries.length}`);
+      document.getElementById("resultsSummary").textContent = summaryBits.join(" · ");
+      document.getElementById("statusSummary").textContent = usingQuery
+        ? "Запрос держится на активной нормализации: упаковка, цвет, материал, размер, форма, кроп, тип кадра, количество, свет, реквизит, объекты и ракурс. Finish, cover и отдельный shot scale сейчас выведены из активного слоя."
+        : "Сейчас ты просматриваешь библиотеку уже через обновлённый активный слой без старых интерпретативных веток.";
+
+      if (!results.length) {
+        grid.innerHTML = `<div class="empty-state">По этой комбинации фильтров и запроса библиотека пока пуста. Это уже полезный сигнал: либо реально нет совпадений, либо правило слишком жёсткое.</div>`;
+        document.getElementById("detailPane").innerHTML = `<div class="empty-state">Нет карточки для инспекции.</div>`;
+        return;
+      }
+
+      if (!results.some(entry => entry.id === state.selectedId)) {
+        state.selectedId = results[0].id;
+      }
+
+      grid.innerHTML = results.map(entry => {
+        const expected = entry.expected;
+        const isActive = entry.id === state.selectedId ? "active" : "";
+        const packaging = unique(expected.product_items.map(item => item.view_type)).map(value => labelMap("viewType", value));
+        const supports = unique([...canonicalProps(expected.props).map(value => labelMap("prop", value)), ...(expected.objects || []).map(value => labelMap("object", value))]);
+        const firstProduct = entry.library.productPanel[0] || {};
+        return `
+          <article class="card-result ${isActive}" data-case-id="${entry.id}">
+            <div class="thumb-wrap">
+              <img class="thumb" src="${entry.image}" alt="${entry.title}">
+              <div class="thumb-overlay">
+                ${entry.score !== null ? `<span class="score-badge">score ${Math.round(entry.score * 100)}%</span>` : `<span class="score-badge">browse</span>`}
+                <span class="count-badge">${expected.product_package_count_bucket} уп.</span>
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="card-kicker">
+                <span>${labelMap("frameType", expected.frame_type)}</span>
+                <span>${labelMap("cameraAngle", expected.camera_angle)}</span>
+              </div>
+              <h3 class="card-title">${entry.title}</h3>
+              <p class="card-summary">${entry.summary}</p>
+              <div class="tag-wrap">
+                ${packaging.map(label => `<span class="tag">${label}</span>`).join("")}
+                ${supports.slice(0, 2).map(label => `<span class="tag">${label}</span>`).join("")}
+                <span class="tag">${labelMap("cropType", expected.crop_type)}</span>
+              </div>
+              <div class="result-footer">
+                <div class="micro"><strong>Материал</strong><span>${firstProduct.material || "—"}</span></div>
+                <div class="micro"><strong>Форма</strong><span>${firstProduct.form || "—"}</span></div>
+                <div class="micro"><strong>Палитра</strong><span>${labelMap("paletteRelationship", expected.palette_relationship)}</span></div>
+                <div class="micro"><strong>Свет</strong><span>${labelMap("lightCharacter", expected.light_character)}</span></div>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      grid.querySelectorAll(".card-result").forEach(card => {
+        card.addEventListener("click", () => {
+          state.selectedId = card.dataset.caseId;
+          renderResults(state.entries, parsed, fallbackUsed);
+        });
+      });
+
+      const selected = results.find(entry => entry.id === state.selectedId) || results[0];
+      showDetails(selected);
+    }
+
+    function renderValueChips(values) {
+      if (!values || !values.length) return `<span class="chip">—</span>`;
+      return values.map(value => `<span class="chip">${value}</span>`).join("");
+    }
+
+    function showDetails(entry) {
+      const expected = entry.expected;
+      const library = entry.library;
+      const pane = document.getElementById("detailPane");
+
+      const productItemsMarkup = library.productPanel.map(item => `
+        <div class="mini-product">
+          <div class="mini-product-title">
+            <strong>${item.packaging}</strong>
+            <span>visual profile</span>
+          </div>
+          <div class="mini-product-grid">
+            <div class="kv"><b>категория</b><span>${labelMap("category", item.category)}</span></div>
+            <div class="kv"><b>цвет</b><span>${item.color}</span></div>
+            <div class="kv"><b>материал</b><span>${item.material}</span></div>
+            <div class="kv"><b>размер</b><span>${item.size}</span></div>
+            <div class="kv"><b>форма</b><span>${item.form}</span></div>
+          </div>
+        </div>
+      `).join("");
+
+      pane.innerHTML = `
+        <div class="inspector-header">
+          <div class="eyebrow">Selected Frame</div>
+          <img class="selected-media" src="${entry.image}" alt="${entry.title}">
+          <div>
+            <h2 class="inspector-title">${entry.title}</h2>
+            <p class="inspector-summary">${entry.summary}</p>
+          </div>
+          <div class="status-row">
+            <span class="pill">${entry.score !== null ? `score ${Math.round(entry.score * 100)}%` : "browse mode"}</span>
+            <span class="pill">${expected.product_package_count_bucket} упаковки</span>
+            <span class="pill">strict shell</span>
+          </div>
+        </div>
+
+        <div class="inspector-sections">
+          <section class="info-section">
+            <div class="info-head"><strong>Источник</strong><span class="summary-meta">metadata</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>source title</b><span>${library.sourceMeta.sourceTitle}</span></div>
+              <div class="kv"><b>author</b><span>${library.sourceMeta.authorName}</span></div>
+              <div class="kv"><b>studio</b><span>${library.sourceMeta.studioName}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Продукт</strong><span class="summary-meta">${library.productPanel.length} item</span></div>
+            <div class="stack">${productItemsMarkup}</div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Кроп</strong><span class="summary-meta">active frame read</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>crop type</b><span>${labelMap("cropType", expected.crop_type)}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Тип кадра</strong><span class="summary-meta">structure</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>frame type</b><span>${labelMap("frameType", expected.frame_type)}</span></div>
+              <div class="kv"><b>count</b><span>${expected.product_package_count_bucket} · raw ${expected.product_package_count}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Световая схема</strong><span class="summary-meta">light</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>характер</b><span>${labelMap("lightCharacter", expected.light_character)}</span></div>
+              <div class="kv"><b>направление</b><span>${labelMap("lightDirection", expected.light_direction)}</span></div>
+              <div class="kv"><b>рисунок</b><span>${labelMap("lightPattern", expected.light_pattern)}</span></div>
+              <div class="kv"><b>scene terms</b><span>${(expected.scene_terms || []).length ? expected.scene_terms.map(value => labelMap("sceneTerm", value)).join(", ") : "—"}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Цветовая палитра</strong><span class="summary-meta">palette</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>градиент</b><span>${labelMap("gradientClass", expected.gradient_class)}</span></div>
+              <div class="kv"><b>сочетание</b><span>${labelMap("paletteRelationship", expected.palette_relationship)}</span></div>
+              <div class="kv"><b>цвета продукта</b><span>${(expected.product_colors || []).map(value => labelMap("color", value)).join(", ") || "—"}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Подача и стилистика</strong><span class="summary-meta">schema-visible</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>подача</b><span>${library.presentation ? labelMap("presentation", library.presentation) : "не заполнено в текущем батче"}</span></div>
+              <div class="kv"><b>стиль</b><span>${(library.styles || []).length ? library.styles.map(value => labelMap("style", value)).join(", ") : "не заполнено в текущем батче"}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Сет-дизайн</strong><span class="summary-meta">props vs objects</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>реквизит</b><span>${canonicalProps(expected.props).map(value => labelMap("prop", value)).join(", ") || "—"}</span></div>
+              <div class="kv"><b>объекты</b><span>${(expected.objects || []).map(value => labelMap("object", value)).join(", ") || "—"}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Ракурс</strong><span class="summary-meta">camera</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>angle</b><span>${labelMap("cameraAngle", expected.camera_angle)}</span></div>
+              <div class="kv"><b>light direction</b><span>${labelMap("lightDirection", expected.light_direction)}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Композиция</strong><span class="summary-meta">schema-visible</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>динамика</b><span>${library.compositionMotion ? labelMap("compositionMotion", library.compositionMotion) : "не заполнено в текущем батче"}</span></div>
+              <div class="kv"><b>плотность</b><span>${library.compositionDensity ? labelMap("compositionDensity", library.compositionDensity) : "не заполнено в текущем батче"}</span></div>
+            </div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Parked</strong><span class="summary-meta">временно убрано</span></div>
+            <div class="chip-row">${renderValueChips(library.parkedLayers)}</div>
+          </section>
+
+          <section class="info-section">
+            <div class="info-head"><strong>Релевантность</strong><span class="summary-meta">score</span></div>
+            <div class="info-grid">
+              <div class="kv"><b>anchor</b><span>${percent(entry.bundles.anchor)}</span></div>
+              <div class="kv"><b>frame</b><span>${percent(entry.bundles.frame)}</span></div>
+              <div class="kv"><b>physical</b><span>${percent(entry.bundles.physical)}</span></div>
+              <div class="kv"><b>support</b><span>${percent(entry.bundles.support)}</span></div>
+              <div class="kv"><b>lexical</b><span>${percent(entry.bundles.lexical)}</span></div>
+              <div class="kv"><b>final</b><span>${entry.score !== null ? `${Math.round(entry.score * 100)}%` : "—"}</span></div>
+            </div>
+            <div class="note-box">${(expected.notes || []).join(" · ") || "—"}</div>
+          </section>
+        </div>
+      `;
+    }
+
+    function clearAll() {
+      document.getElementById("queryInput").value = "";
+      state.filterState = {};
+      run(true);
+    }
+
+    function run(forceRefilter = false) {
+      const parsed = parseQuery(document.getElementById("queryInput").value);
+      renderFilters();
+      renderActiveChips(parsed);
+      renderResults(state.entries, parsed, state.lastFallback);
+      if (forceRefilter) document.getElementById("queryInput").focus();
+    }
+
+    async function init() {
+      const response = await fetch("data/live-set.json");
+      const data = await response.json();
+      state.entries = data.cases.map(prepareEntry);
+      state.selectedId = state.entries[0] ? state.entries[0].id : null;
+
+      const presetNode = document.getElementById("presetQueries");
+      presetNode.innerHTML = data.preset_queries
+        .map(item => `<button class="chip query" type="button" data-query="${escapeAttribute(item.query)}" title="${escapeAttribute(item.note)}">${item.label}</button>`)
+        .join("");
+
+      presetNode.querySelectorAll("button").forEach(button => {
+        button.addEventListener("click", () => {
+          document.getElementById("queryInput").value = button.dataset.query;
+          run();
+        });
+      });
+
+      document.getElementById("queryInput").addEventListener("input", () => run());
+      document.getElementById("clearAllButton").addEventListener("click", clearAll);
+
+      run();
+    }
+
+    init().catch(error => {
+      document.getElementById("resultsSummary").textContent = "Не удалось загрузить библиотеку.";
+      document.getElementById("resultsGrid").innerHTML = `<div class="empty-state">${error.message}</div>`;
+    });
+  </script>
+</body>
+</html>

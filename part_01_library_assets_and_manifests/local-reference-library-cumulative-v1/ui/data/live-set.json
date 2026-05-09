@@ -1,0 +1,1708 @@
+{
+  "version": "v1",
+  "date": "2026-05-08",
+  "status": "local skill indexed batch",
+  "purpose": "Indexed batch for cumulative-reference-library-v1",
+  "coverage_notes": [
+    "This batch was indexed locally inside the reference-library-indexer workflow.",
+    "Author and studio are forced to noname per user request.",
+    "Source title is not invented and stays not_collected when absent."
+  ],
+  "preset_queries": [
+    {
+      "label": "2 упаковки",
+      "query": "2 упаковки",
+      "note": "count should dominate"
+    },
+    {
+      "label": "поднос",
+      "query": "поднос",
+      "note": "curated prop family"
+    },
+    {
+      "label": "цветок",
+      "query": "цветок",
+      "note": "searchable object, not prop"
+    },
+    {
+      "label": "3 тюбика",
+      "query": "3 тюбика",
+      "note": "multi-product tube set"
+    },
+    {
+      "label": "4+ тюбика",
+      "query": "4+ тюбика",
+      "note": "capped count bucket"
+    },
+    {
+      "label": "top view",
+      "query": "top view",
+      "note": "camera angle retrieval"
+    },
+    {
+      "label": "мокрое стекло",
+      "query": "мокрое стекло",
+      "note": "static wet transparent front layer"
+    },
+    {
+      "label": "вода льется",
+      "query": "вода льется",
+      "note": "action case"
+    },
+    {
+      "label": "бутылка",
+      "query": "бутылка",
+      "note": "canonical packaging retrieval"
+    },
+    {
+      "label": "product + texture",
+      "query": "product + texture",
+      "note": "texture world vs decor"
+    },
+    {
+      "label": "тюбик",
+      "query": "тюбик",
+      "note": "packaging retrieval"
+    },
+    {
+      "label": "баночка",
+      "query": "баночка",
+      "note": "jar retrieval"
+    },
+    {
+      "label": "рука",
+      "query": "рука",
+      "note": "searchable object"
+    },
+    {
+      "label": "огурец",
+      "query": "огурец",
+      "note": "object-only reference"
+    },
+    {
+      "label": "поднос",
+      "query": "поднос",
+      "note": "prop retrieval"
+    },
+    {
+      "label": "2 упаковки",
+      "query": "2 упаковки",
+      "note": "co-presence retrieval"
+    },
+    {
+      "label": "вода",
+      "query": "вода",
+      "note": "scene term retrieval"
+    },
+    {
+      "label": "каустики",
+      "query": "каустики",
+      "note": "light pattern retrieval"
+    }
+  ],
+  "cases": [
+    {
+      "id": "case_001",
+      "title": "Два продукта за мокрым стеклом",
+      "image": "../images/originals/001.webp",
+      "summary": "Два продукта за мокрым стеклом. Сцена статичная, но текстурная.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Мятный",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        },
+        {
+          "packaging": "Тюбик",
+          "color": "Голубой",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "tight_crop",
+        "product_package_count": 2,
+        "product_package_count_bucket": "2",
+        "camera_angle": "front",
+        "light_character": "soft",
+        "light_direction": "back",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "mint",
+          "light_blue"
+        ],
+        "scene_terms": [
+          "water",
+          "wet_glass"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "мокрое стекло и конденсат впереди",
+          "два продукта читаются раздельно",
+          "статичная сцена без действия"
+        ]
+      },
+      "composition_density": "high"
+    },
+    {
+      "id": "case_002",
+      "title": "Флакон в металлическом подносе сверху",
+      "image": "../images/originals/002.jpg",
+      "summary": "Один продукт, top view, поднос как реквизит.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Светло-зеленый",
+          "material": "Стекло",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "tight_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "top",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "sage_green"
+        ],
+        "scene_terms": [
+          "metal"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "not_collected"
+          }
+        ],
+        "props": [
+          "tableware"
+        ],
+        "objects": [],
+        "notes": [
+          "поднос считается реквизитом",
+          "солнечным не считается"
+        ]
+      },
+      "composition_density": "medium"
+    },
+    {
+      "id": "case_003",
+      "title": "Три тюбика с продуктовой каплей",
+      "image": "../images/originals/003.jpg",
+      "summary": "Сет из трёх тюбиков. Капля продукта есть, но действия нет.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Кремовый",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        },
+        {
+          "packaging": "Тюбик",
+          "color": "Бежевый",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        },
+        {
+          "packaging": "Тюбик",
+          "color": "Серебро",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "tight_crop",
+        "product_package_count": 3,
+        "product_package_count_bucket": "3",
+        "camera_angle": "three_quarter",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "cream",
+          "beige",
+          "silver"
+        ],
+        "scene_terms": [
+          "reflection"
+        ],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "podium"
+        ],
+        "objects": [],
+        "notes": [
+          "три отдельные упаковки читаются",
+          "капля продукта не превращает кадр в action"
+        ]
+      },
+      "composition_density": "medium"
+    },
+    {
+      "id": "case_004",
+      "title": "Помпа на подносе с мыльной ракушкой и перцем",
+      "image": "../images/originals/004.jpg",
+      "summary": "Один продукт, поднос как реквизит, остальные элементы searchable как объекты.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D4",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "three_quarter",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "white"
+        ],
+        "scene_terms": [
+          "metal"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "tableware"
+        ],
+        "objects": [
+          "shell_soap",
+          "pepper"
+        ],
+        "notes": [
+          "поднос живёт как prop",
+          "ракушка и перец живут как searchable objects"
+        ]
+      },
+      "composition_density": "medium"
+    },
+    {
+      "id": "case_005",
+      "title": "Флакон на плиточной полке с губкой и щеткой",
+      "image": "../images/originals/005.jpg",
+      "summary": "Ванная сцена без действия. Полка — реквизит, предметы вокруг — объекты.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Белый",
+          "material": "Картон / бумага",
+          "size": "D4",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "sunlight",
+        "light_direction": "side",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "white"
+        ],
+        "scene_terms": [
+          "water",
+          "bath"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "shelf"
+        ],
+        "objects": [
+          "sponge",
+          "brush",
+          "foam"
+        ],
+        "notes": [
+          "мокрая ванная среда без action",
+          "солнечный свет читается по жёстким теням"
+        ]
+      },
+      "composition_density": "high"
+    },
+    {
+      "id": "case_006",
+      "title": "Тюбик с цветочной веткой",
+      "image": "../images/originals/006.jpg",
+      "summary": "Один тюбик, много воздуха, цветочная ветка участвует как объект.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Белый",
+          "material": "Алюминий",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "loose_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "soft",
+        "light_direction": "frontal",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "white"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "flower"
+        ],
+        "notes": [
+          "цветочная ветка читается как объект",
+          "много воздуха вокруг продукта"
+        ]
+      },
+      "composition_density": "low"
+    },
+    {
+      "id": "case_007",
+      "title": "Тюбик и коробка на красном сет-дизайне",
+      "image": "../images/originals/007.jpg",
+      "summary": "Две упаковки продукта. Камень — реквизит, красный фон — сцена.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        },
+        {
+          "packaging": "Коробка",
+          "color": "Красный",
+          "material": "Картон",
+          "size": "D2",
+          "form": "прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "tight_crop",
+        "product_package_count": 2,
+        "product_package_count_bucket": "2",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "side",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "white",
+          "red"
+        ],
+        "scene_terms": [
+          "red_background"
+        ],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "box",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "stone"
+        ],
+        "objects": [],
+        "notes": [
+          "коробка считается второй читаемой упаковкой",
+          "камень остаётся реквизитом"
+        ]
+      },
+      "composition_density": "medium"
+    },
+    {
+      "id": "case_008",
+      "title": "Повторяющиеся жёлтые тюбики",
+      "image": "../images/originals/008.webp",
+      "summary": "Повтор одного типа упаковки. Много объектов, жёсткий свет, плотный кадр.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Желтый",
+          "material": "Алюминий",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "partial_crop",
+        "product_package_count": 7,
+        "product_package_count_bucket": "4+",
+        "camera_angle": "top",
+        "light_character": "hard",
+        "light_direction": "top",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "high_contrast_monochrome",
+        "product_colors": [
+          "yellow"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          },
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "повтор одного и того же типа упаковки",
+          "значимая часть крайних тюбиков выходит за кадр"
+        ]
+      },
+      "composition_density": "high"
+    },
+    {
+      "id": "case_009",
+      "title": "Шампунь и бальзам в воде",
+      "image": "../images/originals/009.jpeg",
+      "summary": "Две упаковки в воде. Действия нет, но каустика и жёсткий свет есть.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        },
+        {
+          "packaging": "Бутылка",
+          "color": "Светло-серый",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "tight_crop",
+        "product_package_count": 2,
+        "product_package_count_bucket": "2",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "top",
+        "light_pattern": "caustics",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "white",
+          "soft_gray"
+        ],
+        "scene_terms": [
+          "water",
+          "underwater"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          },
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "жёсткий свет читается по каустике",
+          "вода как среда, но не action"
+        ]
+      },
+      "composition_density": "medium"
+    },
+    {
+      "id": "case_010",
+      "title": "Банка под льющейся водой",
+      "image": "../images/originals/010.jpeg",
+      "summary": "Явный action-кадр: льющаяся вода и splash вокруг баночки.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Баночка",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "квадрат"
+        }
+      ],
+      "expected": {
+        "frame_type": "Product + action",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "low",
+        "light_character": "hard",
+        "light_direction": "back",
+        "light_pattern": "caustics",
+        "gradient_class": "none",
+        "palette_relationship": "cool_monochrome",
+        "product_colors": [
+          "white"
+        ],
+        "scene_terms": [
+          "water",
+          "pouring"
+        ],
+        "product_items": [
+          {
+            "view_type": "jar",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "льющаяся вода и splash = action",
+          "баночка читается целиком"
+        ]
+      },
+      "composition_density": "medium"
+    },
+    {
+      "id": "newobj_001",
+      "title": "Черный тюбик в руках на фоне неба",
+      "image": "../images/originals/00e18a8be0953687a8379b156263b50a.webp",
+      "summary": "Черный тюбик в руках, кадр с выраженным lifestyle-жестом.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Черный",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "editorial",
+        "hero"
+      ],
+      "composition_motion_state": "semi_dynamic",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product + hand",
+        "crop_type": "tight_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "sunlight",
+        "light_direction": "top",
+        "light_pattern": "cast_shadow",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "black"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "hand",
+          "cream_drop"
+        ],
+        "notes": [
+          "руки индексируются как searchable object",
+          "тюбик читается целиком, но кадр тесный"
+        ]
+      }
+    },
+    {
+      "id": "newobj_002",
+      "title": "Голубой флакон в воде со льдом",
+      "image": "../images/originals/01b35ffff4278a0c0a2638ee6a444169.webp",
+      "summary": "Один флакон в холодной водной среде, лед и каустики.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Флакон",
+          "color": "Голубой",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "mass_commercial",
+      "styles": [
+        "clean_commercial",
+        "laboratory_clinical"
+      ],
+      "composition_motion_state": "dynamic",
+      "composition_density": "high",
+      "expected": {
+        "frame_type": "Product + texture",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "top",
+        "light_pattern": "caustics",
+        "gradient_class": "none",
+        "palette_relationship": "cool_monochrome",
+        "product_colors": [
+          "light_blue"
+        ],
+        "scene_terms": [
+          "water",
+          "underwater"
+        ],
+        "product_items": [
+          {
+            "view_type": "vial",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "ice"
+        ],
+        "notes": [
+          "водная среда и лед живут как searchable evidence",
+          "каустики возвращены в блок света"
+        ]
+      }
+    },
+    {
+      "id": "newobj_003",
+      "title": "Белая бутылка за водной линией",
+      "image": "../images/originals/0bbec58947ce51f071ef23e450854ac5.jpg",
+      "summary": "Один продукт в воде, линия жидкости режет сцену, но упаковка читается.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D4",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "editorial",
+        "trend_driven"
+      ],
+      "composition_motion_state": "semi_dynamic",
+      "composition_density": "medium",
+      "expected": {
+        "frame_type": "Product + texture",
+        "crop_type": "tight_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "soft",
+        "light_direction": "back",
+        "light_pattern": "caustics",
+        "gradient_class": "none",
+        "palette_relationship": "cool_monochrome",
+        "product_colors": [
+          "white"
+        ],
+        "scene_terms": [
+          "water",
+          "underwater"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "верх насадки слегка режется кадром, поэтому tight_crop",
+          "водная линия сама по себе не делает partial_crop"
+        ]
+      }
+    },
+    {
+      "id": "newobj_004",
+      "title": "Открытая баночка с косметическим шпателем",
+      "image": "../images/originals/0c1af6c93a7e549767191055fcb07e6a.jpg",
+      "summary": "Открытая баночка и отдельный металлический шпатель.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Баночка",
+          "color": "Серебро",
+          "material": "Металл",
+          "size": "D2",
+          "form": "квадрат"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "editorial",
+        "hero"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "three_quarter",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "even",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "silver"
+        ],
+        "scene_terms": [
+          "metal"
+        ],
+        "product_items": [
+          {
+            "view_type": "jar",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "spatula"
+        ],
+        "notes": [
+          "шпатель оставлен объектом, а не типом упаковки"
+        ]
+      }
+    },
+    {
+      "id": "newobj_005",
+      "title": "Металлическая баночка с роллером и щипцами",
+      "image": "../images/originals/0ce560857660dfae3d3c3ca3afdf72b3.webp",
+      "summary": "Один металлический контейнер, рядом роллер и щипцы.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Баночка",
+          "color": "Серебро",
+          "material": "Металл",
+          "size": "D3",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "editorial",
+        "trend_driven"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "medium",
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "even",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "silver"
+        ],
+        "scene_terms": [
+          "metal"
+        ],
+        "product_items": [
+          {
+            "view_type": "jar",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "facial_roller",
+          "tongs"
+        ],
+        "notes": [
+          "объекты рядом индексируются отдельно, даже если это beauty-tools"
+        ]
+      }
+    },
+    {
+      "id": "newobj_006",
+      "title": "Две бутылки Aesop на черном подиуме",
+      "image": "../images/originals/0ed37dbddd4f318a7017556f76438b8c.jpg",
+      "summary": "Две бутылки на подиуме, одна стоит, вторая лежит.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Бежевый",
+          "material": "Стекло",
+          "size": "D4",
+          "form": "вытянутый прямоугольник"
+        },
+        {
+          "packaging": "Бутылка",
+          "color": "Бежевый",
+          "material": "Стекло",
+          "size": "D4",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "editorial",
+        "hero"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "no_crop",
+        "product_package_count": 2,
+        "product_package_count_bucket": "2",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "side",
+        "light_pattern": "cast_shadow",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "beige"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          },
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "podium"
+        ],
+        "objects": [],
+        "notes": [
+          "подиум считается реквизитом",
+          "две одинаковые бутылки считаются как 2 продукта"
+        ]
+      }
+    },
+    {
+      "id": "newobj_007",
+      "title": "Смятая голубая алюминиевая туба",
+      "image": "../images/originals/0f502d8742d45d4012eecb86dc2a4b98.jpg",
+      "summary": "Один сильно смятый тюбик на отражающей поверхности.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Голубой",
+          "material": "Алюминий",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "minimalism",
+        "trend_driven"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product-only",
+        "crop_type": "loose_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "frontal",
+        "light_pattern": "cast_shadow",
+        "gradient_class": "none",
+        "palette_relationship": "cool_monochrome",
+        "product_colors": [
+          "light_blue"
+        ],
+        "scene_terms": [
+          "reflection"
+        ],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "алюминий читается по характерным вмятинам"
+        ]
+      }
+    },
+    {
+      "id": "newobj_008",
+      "title": "Ломтики огурца с каплями без продукта",
+      "image": "../images/originals/0f6c1ed6fd8655f1440f2b461567ebc3.jpg",
+      "summary": "Объектный и текстурный референс без видимой упаковки.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [],
+      "presentation": "niche_editorial",
+      "styles": [
+        "botanical",
+        "editorial"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "high",
+      "expected": {
+        "frame_type": "Object / texture reference",
+        "crop_type": "partial_crop",
+        "product_package_count": 0,
+        "product_package_count_bucket": "0",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "back",
+        "light_pattern": "caustics",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [],
+        "scene_terms": [
+          "water"
+        ],
+        "product_items": [],
+        "props": [],
+        "objects": [
+          "cucumber"
+        ],
+        "notes": [
+          "нулевой продуктовый кейс надо сохранять, а не выбрасывать",
+          "это отдельный объектный референс"
+        ]
+      }
+    },
+    {
+      "id": "newobj_009",
+      "title": "Янтарный флакон-пипетка в руке",
+      "image": "../images/originals/1aa92ea8-e3f8-498c-864d-b213f5538ddb.JPEG",
+      "summary": "Один небольшой янтарный флакон с пипеткой, кадр поддержан рукой.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Флакон",
+          "color": "Янтарный",
+          "material": "Стекло",
+          "size": "D2",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "minimalism",
+        "hero"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product + hand",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "side",
+        "light_character": "soft",
+        "light_direction": "back",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "amber"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "vial",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "hand"
+        ],
+        "notes": [
+          "рука значима для retrieval"
+        ]
+      }
+    },
+    {
+      "id": "newobj_010",
+      "title": "Зеленая помпа на плитке с пеной",
+      "image": "../images/originals/1af2a1b974e938c08d315d1fdc69c709.jpg",
+      "summary": "Один продукт на плиточной полке, пена у основания.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Зеленый",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "mass_commercial",
+      "styles": [
+        "clean_commercial",
+        "hero"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "high",
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "cast_shadow",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "green"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "shelf"
+        ],
+        "objects": [
+          "foam"
+        ],
+        "notes": [
+          "плиточный уступ считается как полка/опора"
+        ]
+      }
+    },
+    {
+      "id": "newobj_011",
+      "title": "Розовый компакт с красным сердцем",
+      "image": "../images/originals/1bab4255b7d901ace043eebf5ac7437f.webp",
+      "summary": "Открытый компакт, новый тип упаковки для реестра.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Компакт",
+          "color": "Розовый",
+          "material": "Металл",
+          "size": "D2",
+          "form": "квадрат"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "trend_driven",
+        "editorial"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product-only",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "frontal",
+        "light_pattern": "colored_light",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "pink"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "compact",
+            "category": "beauty"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "новый тип упаковки compact добавлен как review-worthy extension"
+        ]
+      }
+    },
+    {
+      "id": "newobj_012",
+      "title": "Бордовый тюбик на подносе с кофе и шоколадом",
+      "image": "../images/originals/1c15fe561ab436dadef0a9d175c46ea1 (1).jpg",
+      "summary": "Один продукт на подносе, окружён посудой и едой.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Бордовый",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "mass_commercial",
+      "styles": [
+        "clean_commercial",
+        "editorial"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "medium",
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "top",
+        "light_character": "soft",
+        "light_direction": "top",
+        "light_pattern": "even",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "burgundy"
+        ],
+        "scene_terms": [
+          "metal"
+        ],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "tableware"
+        ],
+        "objects": [
+          "coffee_cup",
+          "pitcher",
+          "chocolate",
+          "spoon"
+        ],
+        "notes": [
+          "кофе и шоколад не схлопываются в абстрактный food"
+        ]
+      }
+    },
+    {
+      "id": "newobj_013",
+      "title": "Парфюм между руками",
+      "image": "../images/originals/1c7e0bd9-6443-41e7-804e-43ac4cc7767d.JPEG",
+      "summary": "Один парфюмерный флакон, руки формируют hero-жест.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Флакон",
+          "color": "Желтый",
+          "material": "Стекло",
+          "size": "D2",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "hero",
+        "editorial"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product + hand",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "soft",
+        "light_direction": "back",
+        "light_pattern": "none_detected",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "yellow"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "vial",
+            "category": "fragrance"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "hand"
+        ],
+        "notes": [
+          "парфюм живет в high-level категории fragrance"
+        ]
+      }
+    },
+    {
+      "id": "newobj_014",
+      "title": "Зеленая бутылка со всплеском на льду",
+      "image": "../images/originals/1d5ff4ef-a62c-4401-8d85-c882d7b6997d.JPEG",
+      "summary": "Один продукт в активной splash-сцене на ледяной опоре.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Светло-зеленый",
+          "material": "Стекло",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "mass_commercial",
+      "styles": [
+        "clean_commercial",
+        "hero"
+      ],
+      "composition_motion_state": "dynamic",
+      "composition_density": "medium",
+      "expected": {
+        "frame_type": "Product + action",
+        "crop_type": "no_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "hard",
+        "light_direction": "top",
+        "light_pattern": "caustics",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "sage_green"
+        ],
+        "scene_terms": [
+          "water"
+        ],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "ice"
+        ],
+        "notes": [
+          "вода уже движется, поэтому это action",
+          "студийная надпись не считается source metadata"
+        ]
+      }
+    },
+    {
+      "id": "newobj_015",
+      "title": "Две солнцезащитные упаковки на керамическом подиуме",
+      "image": "../images/originals/1e058e707e123fd38c2126e613183726.jpg",
+      "summary": "Две небольшие упаковки на подиуме, мягкий airy-свет.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Бутылка",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "прямоугольник"
+        },
+        {
+          "packaging": "Бутылка",
+          "color": "Бежевый",
+          "material": "Пластик",
+          "size": "D2",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "mass_commercial",
+      "styles": [
+        "minimalism",
+        "hero"
+      ],
+      "composition_motion_state": "semi_dynamic",
+      "composition_density": "medium",
+      "expected": {
+        "frame_type": "Product set",
+        "crop_type": "no_crop",
+        "product_package_count": 2,
+        "product_package_count_bucket": "2",
+        "camera_angle": "front",
+        "light_character": "very_soft",
+        "light_direction": "side",
+        "light_pattern": "even",
+        "gradient_class": "none",
+        "palette_relationship": "analogous",
+        "product_colors": [
+          "white",
+          "beige"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          },
+          {
+            "view_type": "bottle",
+            "category": "skincare"
+          }
+        ],
+        "props": [
+          "podium"
+        ],
+        "objects": [
+          "fabric_veil"
+        ],
+        "notes": [
+          "вуаль живет как объект слоя сцены, не как отдельный product"
+        ]
+      }
+    },
+    {
+      "id": "newobj_016",
+      "title": "Флакон парфюма на золотом отражении",
+      "image": "../images/originals/2dd889cbfe7f60e37621161e713b8a85.webp",
+      "summary": "Один флакон с яйцеобразной крышкой и золотым отражением.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Флакон",
+          "color": "Золотой",
+          "material": "Стекло",
+          "size": "D2",
+          "form": "прямоугольник"
+        }
+      ],
+      "presentation": "niche_editorial",
+      "styles": [
+        "hero",
+        "minimalism"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "low",
+      "expected": {
+        "frame_type": "Product-only",
+        "crop_type": "loose_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "sunlight",
+        "light_direction": "top",
+        "light_pattern": "cast_shadow",
+        "gradient_class": "none",
+        "palette_relationship": "neutral_low_color",
+        "product_colors": [
+          "gold"
+        ],
+        "scene_terms": [
+          "reflection"
+        ],
+        "product_items": [
+          {
+            "view_type": "vial",
+            "category": "fragrance"
+          }
+        ],
+        "props": [],
+        "objects": [],
+        "notes": [
+          "много воздуха вокруг, поэтому loose_crop"
+        ]
+      }
+    },
+    {
+      "id": "newobj_017",
+      "title": "Белый тюбик в бежевой сумке",
+      "image": "../images/originals/2ea69a241c2ff6613989a6e5afcc9a3a.webp",
+      "summary": "Один белый тюбик, сумка вокруг работает как объект среды.",
+      "source": {
+        "source_title": null,
+        "author_name": "noname",
+        "studio_name": "noname"
+      },
+      "product_panel": [
+        {
+          "packaging": "Тюбик",
+          "color": "Белый",
+          "material": "Пластик",
+          "size": "D3",
+          "form": "вытянутый прямоугольник"
+        }
+      ],
+      "presentation": "mass_commercial",
+      "styles": [
+        "clean_commercial",
+        "hero"
+      ],
+      "composition_motion_state": "static",
+      "composition_density": "medium",
+      "expected": {
+        "frame_type": "Product + decor",
+        "crop_type": "tight_crop",
+        "product_package_count": 1,
+        "product_package_count_bucket": "1",
+        "camera_angle": "front",
+        "light_character": "sunlight",
+        "light_direction": "side",
+        "light_pattern": "cast_shadow",
+        "gradient_class": "none",
+        "palette_relationship": "complementary_or_high_contrast",
+        "product_colors": [
+          "white"
+        ],
+        "scene_terms": [],
+        "product_items": [
+          {
+            "view_type": "tube",
+            "category": "skincare"
+          }
+        ],
+        "props": [],
+        "objects": [
+          "bag"
+        ],
+        "notes": [
+          "сумка остается searchable object, а не проп"
+        ]
+      }
+    }
+  ]
+}
