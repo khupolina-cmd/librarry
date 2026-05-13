@@ -1,0 +1,23 @@
+{
+  "skill_name": "font-library-indexer",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "У меня есть шрифт Neue Haas Grotesk, лежит в папке ~/fonts/neue-haas/. Использую для beauty-брендов, хочу чтобы заголовки ощущались холодными и точными. Добавь его в библиотеку.",
+      "expected_output": "Скилл собирает layer 1 от пользователя, заполняет все layer 2 поля (id, family, files, tags, technical, description, specimen, index), добавляет запись в fonts.json, указывает путь к файлам и vocabulary_delta если нужно.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Хочу добавить Canela из Google Fonts. Это для fashion editorial, ощущение — театральное, немного тёмное. Кириллицы нет.",
+      "expected_output": "Скилл использует google_fonts_id, не требует локальных файлов, выставляет has_cyrillic: false, заполняет specimen на латинице, mood_label отражает театральный характер.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Обнови запись для Playfair Display — добавь в контексты packaging и обнови strength: теперь знаю, что он хорошо работает в крупном кегле на тёмном фоне.",
+      "expected_output": "Скилл не перезаписывает весь fonts.json, а патчит только нужную запись, сохраняет все существующие поля, обновляет context и strength по указанию пользователя.",
+      "files": []
+    }
+  ]
+}
