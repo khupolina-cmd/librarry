@@ -1,0 +1,1143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Font Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b0d;
+      --bg-2: #101417;
+      --panel: rgba(13, 16, 19, 0.96);
+      --line: rgba(255, 255, 255, 0.07);
+      --line-strong: rgba(255, 255, 255, 0.12);
+      --text: #f2f1ed;
+      --muted: #9ca3aa;
+      --muted-2: #737b84;
+      --accent: #d8c39a;
+      --accent-2: #9db8d1;
+      --good: #b8d4b1;
+      --warn: #d8b17a;
+      --danger: #d8a0a0;
+      --shadow: 0 20px 70px rgba(0, 0, 0, 0.42);
+      --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.32);
+      --radius-xl: 22px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-sm: 9px;
+      --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+      --sans: "Instrument Sans", "Helvetica Neue", sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      min-height: 100%;
+      background: #060708;
+      color: var(--text);
+      font-family: var(--sans);
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(circle at 50% 40%, black 40%, transparent 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    button { cursor: pointer; }
+
+    /* ── Layout ── */
+    .page {
+      width: min(1760px, calc(100vw - 28px));
+      margin: 0 auto;
+      padding: 14px 0 40px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+
+    /* ── Header ── */
+    .header {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px 13px;
+      margin-bottom: 12px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .logo-eyebrow {
+      font: 500 9px/1.3 var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .logo-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .preview-input-wrap {
+      position: relative;
+    }
+
+    .preview-input {
+      width: 100%;
+      height: 46px;
+      padding: 0 14px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      background: rgba(6, 7, 8, 0.9);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+
+    .preview-input:focus {
+      border-color: rgba(216, 195, 154, 0.3);
+    }
+
+    .preview-input::placeholder { color: var(--muted-2); }
+
+    .preset-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .preset-btn {
+      height: 24px;
+      padding: 0 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(10, 12, 15, 0.92);
+      color: var(--muted);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.06em;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .preset-btn:hover {
+      color: var(--accent);
+      border-color: rgba(216, 195, 154, 0.3);
+    }
+
+    .header-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .count-pill {
+      font: 500 11px/1 var(--mono);
+      color: var(--muted-2);
+      letter-spacing: 0.04em;
+    }
+
+    .count-pill strong { color: var(--accent); font-weight: 500; }
+
+    /* ── Filter bar ── */
+    .filterbar {
+      padding: 10px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .filter-group-label {
+      font: 500 9px/1 var(--mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+      white-space: nowrap;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      height: 26px;
+      padding: 0 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10, 12, 15, 0.92);
+      color: var(--muted);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.06em;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .chip:hover { color: var(--text); border-color: var(--line-strong); }
+
+    .chip.active {
+      background: rgba(216, 195, 154, 0.1);
+      border-color: rgba(216, 195, 154, 0.4);
+      color: var(--accent);
+    }
+
+    .chip.toggle-cyrillic.active {
+      background: rgba(184, 212, 177, 0.1);
+      border-color: rgba(184, 212, 177, 0.4);
+      color: var(--good);
+    }
+
+    .chip.toggle-variable.active {
+      background: rgba(157, 184, 209, 0.1);
+      border-color: rgba(157, 184, 209, 0.4);
+      color: var(--accent-2);
+    }
+
+    .filter-sep {
+      width: 1px;
+      height: 18px;
+      background: var(--line-strong);
+    }
+
+    .clear-btn {
+      height: 26px;
+      padding: 0 10px;
+      border: none;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted-2);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.06em;
+      transition: color 0.15s;
+    }
+
+    .clear-btn:hover { color: var(--text); }
+
+    /* ── Grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 10px;
+    }
+
+    /* ── Card ── */
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--line-strong);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px 10px;
+    }
+
+    .card-name {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: flex-end;
+    }
+
+    .tag {
+      display: inline-block;
+      height: 18px;
+      padding: 0 7px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      color: var(--muted-2);
+      font: 500 9px/18px var(--mono);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .card-preview {
+      flex: 1;
+      padding: 16px 16px 14px;
+      font-size: 28px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      min-height: 100px;
+      word-break: break-word;
+      transition: opacity 0.2s;
+    }
+
+    .card-preview.loading { opacity: 0.3; }
+
+    .card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      padding: 10px 16px 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 20px;
+      padding: 0 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(10, 12, 15, 0.8);
+      color: var(--muted-2);
+      font: 500 9px/1 var(--mono);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .badge--good { color: var(--good); border-color: rgba(184, 212, 177, 0.25); }
+    .badge--blue { color: var(--accent-2); border-color: rgba(157, 184, 209, 0.25); }
+    .badge--accent { color: var(--accent); border-color: rgba(216, 195, 154, 0.25); }
+    .badge--warn { color: var(--warn); border-color: rgba(216, 177, 122, 0.25); }
+
+    /* ── Empty state ── */
+    .empty {
+      grid-column: 1 / -1;
+      padding: 64px 20px;
+      text-align: center;
+      color: var(--muted-2);
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Drawer overlay ── */
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* ── Drawer panel ── */
+    .drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(660px, 100vw);
+      background: #0d1014;
+      border-left: 1px solid var(--line-strong);
+      z-index: 101;
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+      overflow: hidden;
+    }
+
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px 14px;
+      border-bottom: 1px solid var(--line);
+      flex-shrink: 0;
+    }
+
+    .drawer-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+    }
+
+    .drawer-close {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .drawer-close:hover { color: var(--text); border-color: var(--line-strong); }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .drawer-body::-webkit-scrollbar { width: 4px; }
+    .drawer-body::-webkit-scrollbar-track { background: transparent; }
+    .drawer-body::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+
+    /* ── Drawer: Live preview ── */
+    .preview-section { display: flex; flex-direction: column; gap: 12px; }
+
+    .section-label {
+      font: 500 9px/1 var(--mono);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .live-preview-box {
+      min-height: 120px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(6, 7, 8, 0.6);
+      font-size: 48px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      word-break: break-word;
+      white-space: pre-wrap;
+      transition: font-size 0.1s;
+    }
+
+    .preview-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .control-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .control-label {
+      display: flex;
+      justify-content: space-between;
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.08em;
+      color: var(--muted);
+    }
+
+    .control-label span { color: var(--accent); }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 2px;
+      background: var(--line-strong);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent);
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+    .toggle-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-btn {
+      height: 28px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.08em;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+    }
+
+    .toggle-btn.active {
+      background: rgba(216, 195, 154, 0.1);
+      border-color: rgba(216, 195, 154, 0.4);
+      color: var(--accent);
+    }
+
+    /* ── Drawer: Specimen ── */
+    .specimen-tabs {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0;
+    }
+
+    .specimen-tab {
+      height: 32px;
+      padding: 0 14px;
+      border: none;
+      border-bottom: 2px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      font: 500 10px/1 var(--mono);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.15s, border-color 0.15s;
+      margin-bottom: -1px;
+    }
+
+    .specimen-tab:hover { color: var(--text); }
+    .specimen-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .specimen-view {
+      padding: 24px 20px;
+      border: 1px solid var(--line);
+      border-top: none;
+      border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+      background: rgba(6, 7, 8, 0.6);
+      min-height: 100px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .specimen-view.hero-view {
+      font-size: 56px;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+    }
+
+    .specimen-view.poster-view {
+      font-size: 36px;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+    }
+
+    .specimen-view.info-view {
+      font-size: 14px;
+      line-height: 1.7;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+
+    /* ── Drawer: Index ── */
+    .index-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .index-item {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .index-item-full { grid-column: 1 / -1; }
+
+    .index-key {
+      font: 500 9px/1 var(--mono);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted-2);
+    }
+
+    .index-val {
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .index-val strong { color: var(--text); font-weight: 500; }
+
+    /* ── Divider ── */
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0 -20px;
+    }
+
+    /* ── Variable axes ── */
+    .axes-section { display: flex; flex-direction: column; gap: 10px; }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── Header ── -->
+  <div class="panel header">
+    <div class="logo">
+      <div class="logo-eyebrow">Font Library</div>
+      <div class="logo-title">Шрифтовая база</div>
+    </div>
+
+    <div class="header-center">
+      <input
+        class="preview-input"
+        id="globalPreview"
+        type="text"
+        placeholder="Введите текст для сравнения шрифтов…"
+        value="Ночная сыворотка для гладкости и сияния"
+      >
+      <div class="preset-row" id="presetRow"></div>
+    </div>
+
+    <div class="header-meta">
+      <div class="count-pill">
+        <strong id="countVisible">0</strong> / <span id="countTotal">0</span> шрифтов
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Filter bar ── -->
+  <div class="panel filterbar" id="filterbar">
+    <span class="filter-group-label">Стиль</span>
+    <!-- chips injected by JS -->
+    <span class="filter-group-label" id="fl-mood-label" style="display:none">Настроение</span>
+    <span class="filter-group-label" id="fl-context-label" style="display:none">Контекст</span>
+    <div class="filter-sep"></div>
+    <button class="chip toggle-cyrillic" id="toggleCyrillic">Кириллица</button>
+    <button class="chip toggle-variable" id="toggleVariable">Variable</button>
+    <div class="filter-sep"></div>
+    <button class="clear-btn" id="clearFilters">Сбросить</button>
+  </div>
+
+  <!-- ── Grid ── -->
+  <div class="grid" id="grid"></div>
+
+</div>
+
+<!-- ── Drawer overlay ── -->
+<div class="drawer-overlay" id="drawerOverlay"></div>
+
+<!-- ── Drawer ── -->
+<div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Детальный просмотр шрифта">
+  <div class="drawer-head">
+    <div class="drawer-title" id="drawerTitle">—</div>
+    <button class="drawer-close" id="drawerClose" aria-label="Закрыть">✕</button>
+  </div>
+  <div class="drawer-body" id="drawerBody"></div>
+</div>
+
+<script>
+// ── State ──────────────────────────────────────────────
+let fonts = [];
+let previewText = '';
+let activeStyleTags = new Set();
+let filterCyrillic = false;
+let filterVariable = false;
+let drawerFont = null;
+let drawerSize = 48;
+let drawerWeight = 400;
+let drawerTracking = 0;
+let drawerItalic = false;
+let drawerUppercase = false;
+let drawerSpecimen = 'hero';
+
+const PRESETS = [
+  { label: 'Ночная сыворотка', text: 'Ночная сыворотка\nдля гладкости и сияния' },
+  { label: 'Soft skin', text: 'Soft skin, sharp type' },
+  { label: 'NEW FORMULA', text: 'NEW FORMULA 2026' },
+  { label: '0–9', text: '0123456789' },
+  { label: 'Алфавит', text: 'Аа Бб Жж Щщ Rr Gg &' },
+  { label: 'Fragrance', text: 'аромат, который остаётся на коже' },
+];
+
+// ── Boot ───────────────────────────────────────────────
+async function init() {
+  try {
+    const resp = await fetch('fonts.json');
+    fonts = await resp.json();
+  } catch (e) {
+    console.error('Could not load fonts.json', e);
+    fonts = [];
+  }
+
+  buildPresets();
+  loadFontFaces();
+  buildFilters();
+  syncPreviewText();
+  render();
+  bindEvents();
+}
+
+// ── Presets ────────────────────────────────────────────
+function buildPresets() {
+  const row = document.getElementById('presetRow');
+  PRESETS.forEach(p => {
+    const btn = document.createElement('button');
+    btn.className = 'preset-btn';
+    btn.textContent = p.label;
+    btn.addEventListener('click', () => {
+      document.getElementById('globalPreview').value = p.text;
+      syncPreviewText();
+    });
+    row.appendChild(btn);
+  });
+}
+
+// ── Font loading ───────────────────────────────────────
+function loadFontFaces() {
+  fonts.forEach(f => {
+    if (f.files && f.files.length > 0) {
+      // Local woff2 files
+      const rules = f.files.map(file =>
+        `@font-face {
+          font-family: '${f.family}';
+          src: url('${file.file}') format('woff2');
+          font-weight: ${file.weight};
+          font-style: ${file.italic ? 'italic' : 'normal'};
+          font-display: swap;
+        }`
+      ).join('\n');
+      const style = document.createElement('style');
+      style.textContent = rules;
+      document.head.appendChild(style);
+    } else if (f.google_fonts_id) {
+      // Google Fonts CDN (demo / fallback)
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      const variants = f.google_fonts_variants ? `:${f.google_fonts_variants}` : '';
+      link.href = `https://fonts.googleapis.com/css2?family=${f.google_fonts_id}${variants}&display=swap`;
+      document.head.appendChild(link);
+    }
+  });
+}
+
+// ── Filters ────────────────────────────────────────────
+function buildFilters() {
+  const bar = document.getElementById('filterbar');
+  // Collect all style tags
+  const styleTags = new Set();
+  fonts.forEach(f => (f.tags?.style || []).forEach(t => styleTags.add(t)));
+
+  // Insert style chips before the mood label
+  const moodLabel = document.getElementById('fl-mood-label');
+  [...styleTags].sort().forEach(tag => {
+    const chip = document.createElement('button');
+    chip.className = 'chip';
+    chip.dataset.tag = tag;
+    chip.textContent = tag;
+    chip.addEventListener('click', () => toggleTagFilter(tag, chip));
+    bar.insertBefore(chip, moodLabel);
+  });
+}
+
+function toggleTagFilter(tag, el) {
+  if (activeStyleTags.has(tag)) {
+    activeStyleTags.delete(tag);
+    el.classList.remove('active');
+  } else {
+    activeStyleTags.add(tag);
+    el.classList.add('active');
+  }
+  render();
+}
+
+function getFiltered() {
+  return fonts.filter(f => {
+    if (filterCyrillic && !f.technical?.has_cyrillic) return false;
+    if (filterVariable && !f.technical?.is_variable) return false;
+    if (activeStyleTags.size > 0) {
+      const fStyle = new Set(f.tags?.style || []);
+      const match = [...activeStyleTags].some(t => fStyle.has(t));
+      if (!match) return false;
+    }
+    return true;
+  });
+}
+
+// ── Render grid ────────────────────────────────────────
+function render() {
+  const filtered = getFiltered();
+  const grid = document.getElementById('grid');
+
+  document.getElementById('countVisible').textContent = filtered.length;
+  document.getElementById('countTotal').textContent = fonts.length;
+
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div class="empty">Нет шрифтов, соответствующих фильтрам</div>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(f => cardHTML(f)).join('');
+  grid.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', () => openDrawer(card.dataset.id));
+  });
+}
+
+function cardHTML(f) {
+  const styleTags = (f.tags?.style || []).slice(0, 3)
+    .map(t => `<span class="tag">${esc(t)}</span>`).join('');
+  const contextTags = (f.tags?.context || []).slice(0, 2)
+    .map(t => `<span class="tag">${esc(t)}</span>`).join('');
+
+  const badges = [
+    f.technical?.has_cyrillic ? `<span class="badge badge--good">Кириллица</span>` : '',
+    f.technical?.is_variable  ? `<span class="badge badge--blue">Variable</span>` : '',
+    f.technical?.styles_count ? `<span class="badge">${f.technical.styles_count} начертаний</span>` : '',
+    licenseBadge(f.technical?.license_status),
+  ].filter(Boolean).join('');
+
+  const preview = esc(previewText).replace(/\n/g, '<br>');
+
+  return `
+    <article class="card" data-id="${esc(f.id)}" tabindex="0" role="button"
+      aria-label="Открыть шрифт ${esc(f.family)}">
+      <div class="card-header">
+        <span class="card-name">${esc(f.family)}</span>
+        <div class="card-tags">${styleTags}${contextTags}</div>
+      </div>
+      <div class="card-preview" style="font-family: '${esc(f.family)}', serif;">${preview}</div>
+      <div class="card-footer">${badges}</div>
+    </article>`;
+}
+
+function licenseBadge(status) {
+  if (status === 'web_use_allowed') return `<span class="badge badge--accent">OFL</span>`;
+  if (status === 'checked_private_local') return `<span class="badge badge--warn">Private</span>`;
+  return `<span class="badge">Unknown</span>`;
+}
+
+// ── Preview text sync ──────────────────────────────────
+function syncPreviewText() {
+  previewText = document.getElementById('globalPreview').value || 'Aa';
+  document.querySelectorAll('.card-preview').forEach(el => {
+    el.innerHTML = esc(previewText).replace(/\n/g, '<br>');
+  });
+  if (drawerFont) updateDrawerPreview();
+}
+
+// ── Drawer ─────────────────────────────────────────────
+function openDrawer(id) {
+  drawerFont = fonts.find(f => f.id === id);
+  if (!drawerFont) return;
+
+  drawerSize = 48;
+  drawerWeight = drawerFont.default_weight || 400;
+  drawerTracking = 0;
+  drawerItalic = false;
+  drawerUppercase = false;
+  drawerSpecimen = 'hero';
+
+  document.getElementById('drawerTitle').textContent = drawerFont.family;
+  renderDrawerBody();
+
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawerOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawerOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  drawerFont = null;
+}
+
+function renderDrawerBody() {
+  if (!drawerFont) return;
+  const f = drawerFont;
+  const ff = `'${f.family}', serif`;
+  const isVar = f.technical?.is_variable;
+  const wMin = f.weight_range?.[0] || 400;
+  const wMax = f.weight_range?.[1] || 400;
+
+  const body = document.getElementById('drawerBody');
+  body.innerHTML = `
+
+    <!-- Live preview section -->
+    <div class="preview-section">
+      <div class="section-label">Живой просмотр</div>
+      <div class="live-preview-box" id="liveBox"
+        style="font-family: ${ff}; font-size: ${drawerSize}px; font-weight: ${drawerWeight}; letter-spacing: ${drawerTracking}em; font-style: ${drawerItalic ? 'italic' : 'normal'}; text-transform: ${drawerUppercase ? 'uppercase' : 'none'};"
+        >${esc(previewText).replace(/\n/g, '<br>')}</div>
+
+      <div class="preview-controls">
+        <div class="control-row">
+          <div class="control-label">Размер <span id="sizeVal">${drawerSize}px</span></div>
+          <input type="range" id="sizeRange" min="14" max="120" value="${drawerSize}">
+        </div>
+        <div class="control-row">
+          <div class="control-label">Трекинг <span id="trackVal">${drawerTracking}</span></div>
+          <input type="range" id="trackRange" min="-5" max="20" step="1" value="${Math.round(drawerTracking * 100)}">
+        </div>
+        ${wMin !== wMax ? `
+        <div class="control-row" style="grid-column: 1 / -1">
+          <div class="control-label">Жирность <span id="weightVal">${drawerWeight}</span></div>
+          <input type="range" id="weightRange" min="${wMin}" max="${wMax}" step="100" value="${drawerWeight}">
+        </div>` : ''}
+      </div>
+
+      <div class="toggle-row">
+        <button class="toggle-btn ${drawerItalic ? 'active' : ''}" id="toggleItalic">Italic</button>
+        <button class="toggle-btn ${drawerUppercase ? 'active' : ''}" id="toggleUppercase">UPPERCASE</button>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Specimen -->
+    <div>
+      <div class="section-label" style="margin-bottom:12px">Три теста</div>
+      <div class="specimen-tabs">
+        <button class="specimen-tab ${drawerSpecimen === 'hero' ? 'active' : ''}" data-spec="hero">Hero</button>
+        <button class="specimen-tab ${drawerSpecimen === 'poster' ? 'active' : ''}" data-spec="poster">Постер</button>
+        <button class="specimen-tab ${drawerSpecimen === 'info' ? 'active' : ''}" data-spec="info">Инфо</button>
+      </div>
+      ${specimenViewHTML(f)}
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Index -->
+    <div>
+      <div class="section-label" style="margin-bottom:12px">Индекс</div>
+      <div class="index-grid">
+        <div class="index-item">
+          <div class="index-key">Стиль</div>
+          <div class="index-val">${esc(f.index?.style_label || '—')}</div>
+        </div>
+        <div class="index-item">
+          <div class="index-key">Настроение</div>
+          <div class="index-val">${esc(f.index?.mood_label || '—')}</div>
+        </div>
+        <div class="index-item">
+          <div class="index-key">Функция</div>
+          <div class="index-val">${esc(f.index?.function_label || '—')}</div>
+        </div>
+        <div class="index-item">
+          <div class="index-key">Контекст</div>
+          <div class="index-val">${esc(f.index?.context_label || '—')}</div>
+        </div>
+        <div class="index-item index-item-full">
+          <div class="index-key">За что брать</div>
+          <div class="index-val">${esc(f.index?.strength || '—')}</div>
+        </div>
+        <div class="index-item">
+          <div class="index-key">Описание</div>
+          <div class="index-val">${esc(f.description || '—')}</div>
+        </div>
+        <div class="index-item">
+          <div class="index-key">Лицензия</div>
+          <div class="index-val">${esc(f.technical?.license_note || f.technical?.license_status || '—')}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  bindDrawerEvents();
+}
+
+function specimenViewHTML(f) {
+  const ff = `'${f.family}', serif`;
+  const texts = f.specimen || {};
+  const t = drawerSpecimen;
+  const text = texts[t] || '';
+  const cls = t === 'hero' ? 'hero-view' : t === 'poster' ? 'poster-view' : 'info-view';
+  return `<div class="specimen-view ${cls}" style="font-family: ${ff};">${esc(text).replace(/\n/g, '<br>')}</div>`;
+}
+
+function bindDrawerEvents() {
+  // Size range
+  const sizeRange = document.getElementById('sizeRange');
+  if (sizeRange) {
+    sizeRange.addEventListener('input', () => {
+      drawerSize = +sizeRange.value;
+      document.getElementById('sizeVal').textContent = drawerSize + 'px';
+      updateDrawerPreview();
+    });
+  }
+
+  // Track range
+  const trackRange = document.getElementById('trackRange');
+  if (trackRange) {
+    trackRange.addEventListener('input', () => {
+      drawerTracking = trackRange.value / 100;
+      document.getElementById('trackVal').textContent = trackRange.value;
+      updateDrawerPreview();
+    });
+  }
+
+  // Weight range
+  const weightRange = document.getElementById('weightRange');
+  if (weightRange) {
+    weightRange.addEventListener('input', () => {
+      drawerWeight = +weightRange.value;
+      document.getElementById('weightVal').textContent = drawerWeight;
+      updateDrawerPreview();
+    });
+  }
+
+  // Italic toggle
+  const italicBtn = document.getElementById('toggleItalic');
+  if (italicBtn) {
+    italicBtn.addEventListener('click', () => {
+      drawerItalic = !drawerItalic;
+      italicBtn.classList.toggle('active', drawerItalic);
+      updateDrawerPreview();
+    });
+  }
+
+  // Uppercase toggle
+  const upperBtn = document.getElementById('toggleUppercase');
+  if (upperBtn) {
+    upperBtn.addEventListener('click', () => {
+      drawerUppercase = !drawerUppercase;
+      upperBtn.classList.toggle('active', drawerUppercase);
+      updateDrawerPreview();
+    });
+  }
+
+  // Specimen tabs
+  document.querySelectorAll('.specimen-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      drawerSpecimen = tab.dataset.spec;
+      document.querySelectorAll('.specimen-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const view = document.querySelector('.specimen-view');
+      if (view && drawerFont) {
+        const ff = `'${drawerFont.family}', serif`;
+        const text = drawerFont.specimen?.[drawerSpecimen] || '';
+        const cls = drawerSpecimen === 'hero' ? 'hero-view' : drawerSpecimen === 'poster' ? 'poster-view' : 'info-view';
+        view.className = `specimen-view ${cls}`;
+        view.style.fontFamily = ff;
+        view.innerHTML = esc(text).replace(/\n/g, '<br>');
+      }
+    });
+  });
+}
+
+function updateDrawerPreview() {
+  const box = document.getElementById('liveBox');
+  if (!box || !drawerFont) return;
+  box.style.fontSize = drawerSize + 'px';
+  box.style.fontWeight = drawerWeight;
+  box.style.letterSpacing = drawerTracking + 'em';
+  box.style.fontStyle = drawerItalic ? 'italic' : 'normal';
+  box.style.textTransform = drawerUppercase ? 'uppercase' : 'none';
+  box.innerHTML = esc(previewText).replace(/\n/g, '<br>');
+}
+
+// ── Event bindings ─────────────────────────────────────
+function bindEvents() {
+  document.getElementById('globalPreview').addEventListener('input', syncPreviewText);
+
+  document.getElementById('drawerClose').addEventListener('click', closeDrawer);
+  document.getElementById('drawerOverlay').addEventListener('click', closeDrawer);
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeDrawer();
+  });
+
+  // Grid keyboard
+  document.getElementById('grid').addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const card = e.target.closest('.card');
+      if (card) { e.preventDefault(); openDrawer(card.dataset.id); }
+    }
+  });
+
+  document.getElementById('toggleCyrillic').addEventListener('click', function() {
+    filterCyrillic = !filterCyrillic;
+    this.classList.toggle('active', filterCyrillic);
+    render();
+  });
+
+  document.getElementById('toggleVariable').addEventListener('click', function() {
+    filterVariable = !filterVariable;
+    this.classList.toggle('active', filterVariable);
+    render();
+  });
+
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    activeStyleTags.clear();
+    filterCyrillic = false;
+    filterVariable = false;
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    render();
+  });
+}
+
+// ── Utils ──────────────────────────────────────────────
+function esc(str) {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+// ── Start ──────────────────────────────────────────────
+init();
+</script>
+</body>
+</html>
