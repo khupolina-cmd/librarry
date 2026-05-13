@@ -1,0 +1,290 @@
+[
+  {
+    "id": "instrument-serif",
+    "family": "Instrument Serif",
+    "google_fonts_id": "Instrument+Serif",
+    "google_fonts_variants": "ital@0;1",
+    "local_path": "fonts/instrument-serif/",
+    "files": [],
+    "default_weight": 400,
+    "weight_range": [400, 400],
+    "tags": {
+      "style": ["serif", "contemporary", "editorial"],
+      "mood": ["чувственный", "нейтральный", "современный"],
+      "function": ["headline", "display", "subheading"],
+      "context": ["beauty", "fashion", "editorial"]
+    },
+    "technical": {
+      "has_cyrillic": false,
+      "is_variable": false,
+      "styles_count": 2,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Современный сериф с редакционным характером. Чистый и нейтральный, с лёгкой теплотой.",
+    "specimen": {
+      "hero": "НОВАЯ ФОРМА\nЧУВСТВЕННОСТИ",
+      "poster": "A body lotion\nthat smells like a memory",
+      "info": "50 ml · Peptide complex · Night repair"
+    },
+    "index": {
+      "style_label": "contemporary editorial serif",
+      "mood_label": "чувственный, нейтральный, современный",
+      "function_label": "hero-заголовок, display, подпись к изображению",
+      "context_label": "beauty, fashion, editorial",
+      "strength": "мягкий и современный, хорошо работает в крупном кегле рядом с предметной съёмкой"
+    }
+  },
+  {
+    "id": "playfair-display",
+    "family": "Playfair Display",
+    "google_fonts_id": "Playfair+Display",
+    "google_fonts_variants": "ital,wght@0,400..900;1,400..900",
+    "local_path": "fonts/playfair-display/",
+    "files": [],
+    "default_weight": 400,
+    "weight_range": [400, 900],
+    "tags": {
+      "style": ["serif", "classic", "high-contrast"],
+      "mood": ["элегантный", "роскошный", "классический"],
+      "function": ["headline", "display", "title"],
+      "context": ["beauty", "luxury", "magazine", "fragrance"]
+    },
+    "technical": {
+      "has_cyrillic": true,
+      "is_variable": true,
+      "styles_count": 6,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Классический высококонтрастный сериф с выраженными засечками. Идеален для luxury и beauty заголовков.",
+    "specimen": {
+      "hero": "НОЧНАЯ СЫВОРОТКА\nДЛЯ СИЯНИЯ",
+      "poster": "La beauté commence\npar la confiance",
+      "info": "Retinol 0.3% · Hyaluronic acid · Niacinamide"
+    },
+    "index": {
+      "style_label": "classic high-contrast serif",
+      "mood_label": "элегантный, роскошный, классический",
+      "function_label": "headline, display, editorial title",
+      "context_label": "beauty, luxury, magazine, fragrance",
+      "strength": "узнаваемый luxury-характер, кириллица, variable — управление от light до black"
+    }
+  },
+  {
+    "id": "cormorant-garamond",
+    "family": "Cormorant Garamond",
+    "google_fonts_id": "Cormorant+Garamond",
+    "google_fonts_variants": "ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700",
+    "local_path": "fonts/cormorant-garamond/",
+    "files": [],
+    "default_weight": 300,
+    "weight_range": [300, 700],
+    "tags": {
+      "style": ["serif", "display", "garalde", "fashion"],
+      "mood": ["изысканный", "лёгкий", "высокий"],
+      "function": ["display", "headline", "editorial"],
+      "context": ["beauty", "fashion", "fragrance", "poster"]
+    },
+    "technical": {
+      "has_cyrillic": true,
+      "is_variable": false,
+      "styles_count": 10,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Ультратонкий дисплейный сериф в традиции Гарамон. Сверхконтрастный, высокий, аристократичный.",
+    "specimen": {
+      "hero": "Sérum de Minuit\nPour l'Éclat",
+      "poster": "аромат, который\nостаётся на коже",
+      "info": "Édition Limitée · 30 ml · №12"
+    },
+    "index": {
+      "style_label": "high-fashion garalde display serif",
+      "mood_label": "изысканный, воздушный, аристократичный",
+      "function_label": "display headline, typographic object, poster",
+      "context_label": "beauty, fragrance, haute couture, editorial",
+      "strength": "экстремально тонкий штрих — сильный типографический объект в крупном кегле"
+    }
+  },
+  {
+    "id": "dm-serif-display",
+    "family": "DM Serif Display",
+    "google_fonts_id": "DM+Serif+Display",
+    "google_fonts_variants": "ital@0;1",
+    "local_path": "fonts/dm-serif-display/",
+    "files": [],
+    "default_weight": 400,
+    "weight_range": [400, 400],
+    "tags": {
+      "style": ["serif", "editorial", "contemporary"],
+      "mood": ["уверенный", "современный", "прямой"],
+      "function": ["headline", "hero", "display"],
+      "context": ["beauty", "fashion", "editorial", "digital"]
+    },
+    "technical": {
+      "has_cyrillic": true,
+      "is_variable": false,
+      "styles_count": 2,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Современный редакционный сериф с высоким контрастом и чёткими засечками. Убедительный в крупном кегле.",
+    "specimen": {
+      "hero": "НОВАЯ ФОРМУЛА\n2026",
+      "poster": "Skin that speaks\nfor itself",
+      "info": "Vitamin C 15% · SPF 30 · All skin types"
+    },
+    "index": {
+      "style_label": "contemporary editorial serif",
+      "mood_label": "уверенный, современный, прямой",
+      "function_label": "hero-заголовок, section title, hero",
+      "context_label": "beauty, fashion, editorial, tech-beauty",
+      "strength": "контрастный и уверенный — сильный заголовок без лишней декоративности"
+    }
+  },
+  {
+    "id": "fraunces",
+    "family": "Fraunces",
+    "google_fonts_id": "Fraunces",
+    "google_fonts_variants": "ital,opsz,wght@0,9..144,100..900;1,9..144,100..900",
+    "local_path": "fonts/fraunces/",
+    "files": [],
+    "default_weight": 300,
+    "weight_range": [100, 900],
+    "tags": {
+      "style": ["serif", "old-style", "expressive", "variable"],
+      "mood": ["тёмный", "чувственный", "нестандартный"],
+      "function": ["display", "headline", "poster"],
+      "context": ["beauty", "fragrance", "editorial", "poster"]
+    },
+    "technical": {
+      "has_cyrillic": false,
+      "is_variable": true,
+      "styles_count": 18,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Variable-сериф с персонажем и историей. Оптические размеры, вес от Hairline до Black, ось Wonky для экспрессии.",
+    "specimen": {
+      "hero": "Midnight\nSerum",
+      "poster": "the scent of\nsomething rare",
+      "info": "Oud · Black Iris · Amber · Night Bloom"
+    },
+    "index": {
+      "style_label": "expressive old-style variable serif",
+      "mood_label": "тёмный, загадочный, нестандартный, чувственный",
+      "function_label": "display, poster, typographic object",
+      "context_label": "niche fragrance, beauty, night editorial",
+      "strength": "variable с оптическими осями — уникальный характер, нет аналогов среди свободных шрифтов"
+    }
+  },
+  {
+    "id": "bodoni-moda",
+    "family": "Bodoni Moda",
+    "google_fonts_id": "Bodoni+Moda",
+    "google_fonts_variants": "ital,opsz,wght@0,6..96,400..900;1,6..96,400..900",
+    "local_path": "fonts/bodoni-moda/",
+    "files": [],
+    "default_weight": 400,
+    "weight_range": [400, 900],
+    "tags": {
+      "style": ["serif", "didone", "fashion", "high-contrast", "variable"],
+      "mood": ["роскошный", "драматичный", "модный"],
+      "function": ["display", "headline", "fashion-editorial"],
+      "context": ["fashion", "beauty", "luxury", "poster", "fragrance"]
+    },
+    "technical": {
+      "has_cyrillic": false,
+      "is_variable": true,
+      "styles_count": 10,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Дидона в стиле haute couture. Экстремальный контраст штриха, модный и драматичный характер.",
+    "specimen": {
+      "hero": "HAUTE\nBEAUTÉ",
+      "poster": "A fragrance born\nfrom obsession",
+      "info": "Eau de Parfum · 50 ml · Paris"
+    },
+    "index": {
+      "style_label": "high-fashion didone display serif",
+      "mood_label": "роскошный, драматичный, модный, театральный",
+      "function_label": "fashion headline, display, typographic poster",
+      "context_label": "luxury fashion, couture beauty, fragrance, high-end editorial",
+      "strength": "максимальный контраст — сильнейший typographic object в крупном кегле"
+    }
+  },
+  {
+    "id": "eb-garamond",
+    "family": "EB Garamond",
+    "google_fonts_id": "EB+Garamond",
+    "google_fonts_variants": "ital,wght@0,400..800;1,400..800",
+    "local_path": "fonts/eb-garamond/",
+    "files": [],
+    "default_weight": 400,
+    "weight_range": [400, 800],
+    "tags": {
+      "style": ["serif", "garalde", "classic", "bookface"],
+      "mood": ["спокойный", "интеллектуальный", "тихий"],
+      "function": ["body", "caption", "subheading", "long-form"],
+      "context": ["beauty", "editorial", "packaging", "book"]
+    },
+    "technical": {
+      "has_cyrillic": true,
+      "is_variable": true,
+      "styles_count": 8,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Открытый Гарамон на основе пуансонов XVI века. Универсальный, читаемый, с правильной историей.",
+    "specimen": {
+      "hero": "Состав и польза\nдля кожи",
+      "poster": "Everything your skin\nhas been waiting for",
+      "info": "Fragrance-free · Dermatologically tested · 100 ml"
+    },
+    "index": {
+      "style_label": "classic garalde book serif",
+      "mood_label": "спокойный, интеллектуальный, доверительный",
+      "function_label": "body copy, caption, editorial subheading",
+      "context_label": "packaging copy, beauty editorial, clean beauty",
+      "strength": "кириллица, variable — надёжный рабочий шрифт для текстовых блоков и упаковки"
+    }
+  },
+  {
+    "id": "libre-baskerville",
+    "family": "Libre Baskerville",
+    "google_fonts_id": "Libre+Baskerville",
+    "google_fonts_variants": "ital,wght@0,400;0,700;1,400",
+    "local_path": "fonts/libre-baskerville/",
+    "files": [],
+    "default_weight": 400,
+    "weight_range": [400, 700],
+    "tags": {
+      "style": ["serif", "transitional", "versatile", "screen"],
+      "mood": ["нейтральный", "надёжный", "чистый"],
+      "function": ["body", "headline", "subheading", "packaging"],
+      "context": ["beauty", "skincare", "wellness", "packaging"]
+    },
+    "technical": {
+      "has_cyrillic": false,
+      "is_variable": false,
+      "styles_count": 3,
+      "license_status": "web_use_allowed",
+      "license_note": "SIL Open Font License 1.1"
+    },
+    "description": "Переходный сериф, оптимизированный для экрана. Надёжный, читаемый, рабочий.",
+    "specimen": {
+      "hero": "CLEAN\nBEAUTY",
+      "poster": "Formulated without\ncompromise",
+      "info": "Cruelty-free · Vegan · Recyclable packaging"
+    },
+    "index": {
+      "style_label": "transitional screen-optimised serif",
+      "mood_label": "нейтральный, надёжный, чистый",
+      "function_label": "body copy, packaging text, subheading",
+      "context_label": "clean beauty, skincare, wellness, eco",
+      "strength": "оптимизирован для экрана, хорошая читаемость в малых размерах — незаменим для текстов на упаковке"
+    }
+  }
+]
