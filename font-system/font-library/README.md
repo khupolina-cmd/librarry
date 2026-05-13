@@ -6,11 +6,11 @@
 
 Откройте библиотеку через локальный сервер (рекомендуется), чтобы корректно загружались локальные шрифты и `fonts.json`.
 
-**Важно:** сервер нужно запускать из папки `font-library/`, а не из корня репозитория.
+**Важно:** сервер нужно запускать из папки `font-system/font-library/`, а не из корня репозитория.
 
 ```bash
 # Перейдите в папку библиотеки
-cd font-library
+cd font-system/font-library
 
 # Python 3
 python -m http.server 8080
@@ -24,7 +24,7 @@ php -S localhost:8080
 
 Затем откройте [http://localhost:8080/](http://localhost:8080/) в браузере.
 
-> **Если вы запускаете сервер из корня репозитория** (на уровень выше), используйте URL [http://localhost:8080/font-library/](http://localhost:8080/font-library/).
+> **Если вы запускаете сервер из корня репозитория** (на уровень выше), используйте URL [http://localhost:8080/font-system/font-library/](http://localhost:8080/font-system/font-library/).
 
 > **Примечание:** Открытие `index.html` двойным кликом (`file://`) может блокировать загрузку ресурсов в браузере. Используйте локальный сервер.
 
@@ -108,13 +108,14 @@ font-library/
 ## Структура
 
 ```
-font-library/
-  index.html       ← главная страница (всё встроено: CSS + JS)
-  fonts.json       ← метаданные шрифтов
-  fonts/           ← папка для файлов шрифтов
-    your-font/
-      YourFont-Regular.woff2
-  README.md        ← этот файл
+font-system/
+  font-library/
+    index.html       ← главная страница (всё встроено: CSS + JS)
+    fonts.json       ← метаданные шрифтов
+    fonts/           ← папка для файлов шрифтов
+      your-font/
+        YourFont-Regular.woff2
+    README.md        ← этот файл
 ```
 
 ---

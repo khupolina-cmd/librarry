@@ -2,19 +2,19 @@
 
 This repository contains two local libraries and the skills that keep them stable:
 
-- `font-library/` — HTML font library with live previews and `fonts.json` index
+- `font-system/` — everything related to the font library: HTML viewer, `fonts.json` index, font files, and the indexer skill
 - `part_01_library_assets_and_manifests/` through `part_04_skills/` — reference image library and its skills
 
 ## Skills
 
-All agent work in this repo must go through the skills in `part_04_skills/`.
+All agent work in this repo must go through the dedicated skills.
 
-| Skill | When to use |
-|---|---|
-| `font-library-indexer` | Adding a new font to the font library: accept font files + layer 1 user data, produce a complete `fonts.json` record |
-| `reference-library-indexer` | Indexing reference images into the local searchable reference library |
-| `reference-registry-batcher` | Building and updating the reference library registry from image batches |
-| `vision-batch-indexer` | Batch-processing product or reference images into one structured card per file |
+| Skill | Location | When to use |
+|---|---|---|
+| `font-library-indexer` | `font-system/font-library-indexer/` | Adding a new font to the font library: accept font files + layer 1 user data, produce a complete `fonts.json` record |
+| `reference-library-indexer` | `part_04_skills/reference-library-indexer/` | Indexing reference images into the local searchable reference library |
+| `reference-registry-batcher` | `part_04_skills/reference-registry-batcher/` | Building and updating the reference library registry from image batches |
+| `vision-batch-indexer` | `part_04_skills/vision-batch-indexer/` | Batch-processing product or reference images into one structured card per file |
 
 ## Non-negotiable rules
 
@@ -29,21 +29,22 @@ All agent work in this repo must go through the skills in `part_04_skills/`.
 ## Repository layout
 
 ```
-AGENTS.md                          ← this file
-font-library/
-  index.html                       ← HTML viewer (all CSS+JS inline)
-  fonts.json                       ← master font index
-  fonts/                           ← local font files per family
-    <family-id>/
-      *.woff2
-part_01_library_assets_and_manifests/
-part_02_library_cards_and_records/
-part_03_context/
-part_04_skills/
-  font-library-indexer/            ← skill: add a font + index it
+AGENTS.md                               ← this file
+font-system/                            ← font library — all font-related files live here
+  font-library/
+    index.html                          ← HTML viewer (all CSS+JS inline)
+    fonts.json                          ← master font index
+    fonts/                              ← local font files per family
+      <family-id>/
+        *.woff2
+  font-library-indexer/                 ← skill: add a font + index it
     SKILL.md
     evals/
     references/
+part_01_library_assets_and_manifests/
+part_02_library_cards_and_records/
+part_03_context/
+part_04_skills/                         ← reference library skills only
   reference-library-indexer/
   reference-registry-batcher/
   vision-batch-indexer/
@@ -51,6 +52,6 @@ part_04_skills/
 
 ## Output files
 
-- Font records go into `font-library/fonts.json`.
-- Font files go into `font-library/fonts/<family-id>/`.
+- Font records go into `font-system/font-library/fonts.json`.
+- Font files go into `font-system/font-library/fonts/<family-id>/`.
 - Reference library outputs follow the schema defined in `reference-library-indexer`.
