@@ -170,85 +170,177 @@
 
     .count-pill strong { color: var(--accent); font-weight: 500; }
 
-    /* ── Filter bar ── */
-    .filterbar {
-      padding: 10px 16px;
-      margin-bottom: 12px;
+    /* ── Workspace (sidebar + main) ── */
+    .workspace {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 14px;
+      max-height: calc(100vh - 28px);
+      overflow-y: auto;
+      padding: 14px;
+      scrollbar-width: thin;
+      scrollbar-color: var(--line-strong) transparent;
+    }
+
+    .sidebar::-webkit-scrollbar { width: 4px; }
+    .sidebar::-webkit-scrollbar-track { background: transparent; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
+
+    .section-head {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
     }
 
-    .filter-group-label {
-      font: 500 9px/1 var(--mono);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+    .section-title {
+      margin: 0;
+      font-size: 13px;
+      letter-spacing: -0.02em;
+      font-weight: 600;
+    }
+
+    .section-note {
       color: var(--muted-2);
-      white-space: nowrap;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      height: 26px;
-      padding: 0 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(10, 12, 15, 0.92);
-      color: var(--muted);
-      font: 500 10px/1 var(--mono);
-      letter-spacing: 0.06em;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .chip:hover { color: var(--text); border-color: var(--line-strong); }
-
-    .chip.active {
-      background: rgba(216, 195, 154, 0.1);
-      border-color: rgba(216, 195, 154, 0.4);
-      color: var(--accent);
-    }
-
-    .chip.toggle-cyrillic.active {
-      background: rgba(184, 212, 177, 0.1);
-      border-color: rgba(184, 212, 177, 0.4);
-      color: var(--good);
-    }
-
-    .chip.toggle-variable.active {
-      background: rgba(157, 184, 209, 0.1);
-      border-color: rgba(157, 184, 209, 0.4);
-      color: var(--accent-2);
-    }
-
-    .filter-sep {
-      width: 1px;
-      height: 18px;
-      background: var(--line-strong);
+      font: 400 10px/1 var(--mono);
     }
 
     .clear-btn {
-      height: 26px;
-      padding: 0 10px;
+      height: 22px;
+      padding: 0 8px;
       border: none;
       border-radius: 999px;
       background: transparent;
       color: var(--muted-2);
-      font: 500 10px/1 var(--mono);
+      font: 500 9px/1 var(--mono);
       letter-spacing: 0.06em;
       transition: color 0.15s;
+      cursor: pointer;
     }
 
     .clear-btn:hover { color: var(--text); }
 
+    /* ── Filter stack (sidebar) ── */
+    .filter-stack {
+      display: grid;
+      gap: 6px;
+    }
+
+    .filter-section {
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      background: rgba(10, 12, 15, 0.9);
+      overflow: hidden;
+    }
+
+    .filter-section[open] {
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .filter-summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 11px;
+      user-select: none;
+    }
+
+    .filter-summary::-webkit-details-marker { display: none; }
+
+    .filter-summary strong {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .summary-meta {
+      color: var(--muted-2);
+      font: 400 9px/1 var(--mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .filter-body {
+      padding: 2px 10px 10px;
+      display: grid;
+      gap: 2px;
+    }
+
+    .option {
+      display: grid;
+      grid-template-columns: 14px minmax(0, 1fr) auto;
+      gap: 7px;
+      align-items: center;
+      padding: 5px 6px;
+      border-radius: 8px;
+      background: transparent;
+      border: 1px solid transparent;
+      cursor: pointer;
+      min-height: 26px;
+      transition: background 0.12s, border-color 0.12s;
+    }
+
+    .option:hover {
+      background: rgba(255,255,255,0.03);
+      border-color: rgba(255,255,255,0.06);
+    }
+
+    .option input[type="checkbox"] {
+      margin: 0;
+      accent-color: #dcc99e;
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+
+    .option span {
+      min-width: 0;
+      font-size: 10px;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .option small {
+      color: var(--muted-2);
+      font: 400 9px/1 var(--mono);
+      white-space: nowrap;
+    }
+
+    .option.cyrillic-opt input { accent-color: #b8d4b1; }
+    .option.variable-opt input { accent-color: #9db8d1; }
+
     /* ── Grid ── */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 10px;
+    }
+
+    @media (max-width: 1100px) {
+      .workspace {
+        grid-template-columns: 240px minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .workspace {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: static;
+        max-height: none;
+      }
     }
 
     /* ── Card ── */
@@ -656,21 +748,22 @@
     </div>
   </div>
 
-  <!-- ── Filter bar ── -->
-  <div class="panel filterbar" id="filterbar">
-    <span class="filter-group-label">Стиль</span>
-    <!-- chips injected by JS -->
-    <span class="filter-group-label" id="fl-mood-label" style="display:none">Настроение</span>
-    <span class="filter-group-label" id="fl-context-label" style="display:none">Контекст</span>
-    <div class="filter-sep"></div>
-    <button class="chip toggle-cyrillic" id="toggleCyrillic">Кириллица</button>
-    <button class="chip toggle-variable" id="toggleVariable">Variable</button>
-    <div class="filter-sep"></div>
-    <button class="clear-btn" id="clearFilters">Сбросить</button>
-  </div>
+  <!-- ── Workspace ── -->
+  <div class="workspace">
 
-  <!-- ── Grid ── -->
-  <div class="grid" id="grid"></div>
+    <!-- Sidebar filters -->
+    <aside class="panel sidebar" role="region" aria-label="Панель фильтров">
+      <div class="section-head">
+        <h2 class="section-title">Фильтры</h2>
+        <button class="clear-btn" id="clearFilters">Сбросить</button>
+      </div>
+      <div id="filterStack" class="filter-stack"></div>
+    </aside>
+
+    <!-- Main grid -->
+    <div class="grid" id="grid"></div>
+
+  </div>
 
 </div>
 
@@ -691,6 +784,9 @@
 let fonts = [];
 let previewText = '';
 let activeStyleTags = new Set();
+let activeMoodTags = new Set();
+let activeFunctionTags = new Set();
+let activeContextTags = new Set();
 let filterCyrillic = false;
 let filterVariable = false;
 let drawerFont = null;
@@ -773,32 +869,141 @@ function loadFontFaces() {
 
 // ── Filters ────────────────────────────────────────────
 function buildFilters() {
-  const bar = document.getElementById('filterbar');
-  // Collect all style tags
-  const styleTags = new Set();
-  fonts.forEach(f => (f.tags?.style || []).forEach(t => styleTags.add(t)));
+  const stack = document.getElementById('filterStack');
 
-  // Insert style chips before the mood label
-  const moodLabel = document.getElementById('fl-mood-label');
-  [...styleTags].sort().forEach(tag => {
-    const chip = document.createElement('button');
-    chip.className = 'chip';
-    chip.dataset.tag = tag;
-    chip.textContent = tag;
-    chip.addEventListener('click', () => toggleTagFilter(tag, chip));
-    bar.insertBefore(chip, moodLabel);
+  // Collect all values for each tag category
+  const groups = [
+    { key: 'style',    label: 'Стиль',      state: activeStyleTags,    open: true },
+    { key: 'mood',     label: 'Настроение', state: activeMoodTags,     open: false },
+    { key: 'function', label: 'Функция',    state: activeFunctionTags, open: false },
+    { key: 'context',  label: 'Контекст',   state: activeContextTags,  open: false },
+  ];
+
+  groups.forEach(group => {
+    const values = new Map(); // value -> count
+    fonts.forEach(f => {
+      (f.tags?.[group.key] || []).forEach(v => {
+        values.set(v, (values.get(v) || 0) + 1);
+      });
+    });
+    if (values.size === 0) return;
+
+    const sorted = [...values.entries()].sort((a, b) => b[1] - a[1]);
+    const details = document.createElement('details');
+    details.className = 'filter-section';
+    if (group.open) details.open = true;
+
+    const summary = document.createElement('summary');
+    summary.className = 'filter-summary';
+    const summaryStrong = document.createElement('strong');
+    summaryStrong.textContent = group.label;
+    const summaryMeta = document.createElement('span');
+    summaryMeta.className = 'summary-meta';
+    summaryMeta.id = `meta-${group.key}`;
+    summaryMeta.setAttribute('aria-live', 'polite');
+    summary.appendChild(summaryStrong);
+    summary.appendChild(summaryMeta);
+    details.appendChild(summary);
+
+    const body = document.createElement('div');
+    body.className = 'filter-body';
+
+    sorted.forEach(([val, count]) => {
+      const label = document.createElement('label');
+      label.className = 'option';
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.value = val;
+      cb.addEventListener('change', () => {
+        if (cb.checked) group.state.add(val);
+        else group.state.delete(val);
+        updateMetaBadge(group.key, group.state);
+        render();
+      });
+      const span = document.createElement('span');
+      span.textContent = val;
+      const small = document.createElement('small');
+      small.textContent = count;
+      label.appendChild(cb);
+      label.appendChild(span);
+      label.appendChild(small);
+      body.appendChild(label);
+    });
+
+    details.appendChild(body);
+    stack.appendChild(details);
   });
+
+  const techDetails = document.createElement('details');
+  techDetails.className = 'filter-section';
+  const techSummary = document.createElement('summary');
+  techSummary.className = 'filter-summary';
+  const techStrong = document.createElement('strong');
+  techStrong.textContent = 'Технические';
+  const techMeta = document.createElement('span');
+  techMeta.className = 'summary-meta';
+  techMeta.id = 'meta-technical';
+  techMeta.setAttribute('aria-live', 'polite');
+  techSummary.appendChild(techStrong);
+  techSummary.appendChild(techMeta);
+  techDetails.appendChild(techSummary);
+
+  const techBody = document.createElement('div');
+  techBody.className = 'filter-body';
+
+  const cyrCount = fonts.filter(f => f.technical?.has_cyrillic).length;
+  const cyrLabel = document.createElement('label');
+  cyrLabel.className = 'option cyrillic-opt';
+  const cyrCb = document.createElement('input');
+  cyrCb.type = 'checkbox';
+  cyrCb.id = 'toggleCyrillic';
+  cyrCb.addEventListener('change', function() {
+    filterCyrillic = this.checked;
+    updateMetaBadge('technical', null);
+    render();
+  });
+  const cyrSpan = document.createElement('span');
+  cyrSpan.textContent = 'Кириллица';
+  const cyrSmall = document.createElement('small');
+  cyrSmall.textContent = cyrCount;
+  cyrLabel.appendChild(cyrCb);
+  cyrLabel.appendChild(cyrSpan);
+  cyrLabel.appendChild(cyrSmall);
+  techBody.appendChild(cyrLabel);
+
+  const varCount = fonts.filter(f => f.technical?.is_variable).length;
+  const varLabel = document.createElement('label');
+  varLabel.className = 'option variable-opt';
+  const varCb = document.createElement('input');
+  varCb.type = 'checkbox';
+  varCb.id = 'toggleVariable';
+  varCb.addEventListener('change', function() {
+    filterVariable = this.checked;
+    updateMetaBadge('technical', null);
+    render();
+  });
+  const varSpan = document.createElement('span');
+  varSpan.textContent = 'Variable';
+  const varSmall = document.createElement('small');
+  varSmall.textContent = varCount;
+  varLabel.appendChild(varCb);
+  varLabel.appendChild(varSpan);
+  varLabel.appendChild(varSmall);
+  techBody.appendChild(varLabel);
+
+  techDetails.appendChild(techBody);
+  stack.appendChild(techDetails);
 }
 
-function toggleTagFilter(tag, el) {
-  if (activeStyleTags.has(tag)) {
-    activeStyleTags.delete(tag);
-    el.classList.remove('active');
+function updateMetaBadge(groupKey, state) {
+  const el = document.getElementById(`meta-${groupKey}`);
+  if (!el) return;
+  if (groupKey === 'technical') {
+    const n = (filterCyrillic ? 1 : 0) + (filterVariable ? 1 : 0);
+    el.textContent = n > 0 ? `${n} active` : '';
   } else {
-    activeStyleTags.add(tag);
-    el.classList.add('active');
+    el.textContent = state && state.size > 0 ? `${state.size} active` : '';
   }
-  render();
 }
 
 function getFiltered() {
@@ -806,9 +1011,20 @@ function getFiltered() {
     if (filterCyrillic && !f.technical?.has_cyrillic) return false;
     if (filterVariable && !f.technical?.is_variable) return false;
     if (activeStyleTags.size > 0) {
-      const fStyle = new Set(f.tags?.style || []);
-      const match = [...activeStyleTags].some(t => fStyle.has(t));
-      if (!match) return false;
+      const fSet = new Set(f.tags?.style || []);
+      if (![...activeStyleTags].some(t => fSet.has(t))) return false;
+    }
+    if (activeMoodTags.size > 0) {
+      const fSet = new Set(f.tags?.mood || []);
+      if (![...activeMoodTags].some(t => fSet.has(t))) return false;
+    }
+    if (activeFunctionTags.size > 0) {
+      const fSet = new Set(f.tags?.function || []);
+      if (![...activeFunctionTags].some(t => fSet.has(t))) return false;
+    }
+    if (activeContextTags.size > 0) {
+      const fSet = new Set(f.tags?.context || []);
+      if (![...activeContextTags].some(t => fSet.has(t))) return false;
     }
     return true;
   });
@@ -1105,23 +1321,15 @@ function bindEvents() {
     }
   });
 
-  document.getElementById('toggleCyrillic').addEventListener('click', function() {
-    filterCyrillic = !filterCyrillic;
-    this.classList.toggle('active', filterCyrillic);
-    render();
-  });
-
-  document.getElementById('toggleVariable').addEventListener('click', function() {
-    filterVariable = !filterVariable;
-    this.classList.toggle('active', filterVariable);
-    render();
-  });
-
   document.getElementById('clearFilters').addEventListener('click', () => {
     activeStyleTags.clear();
+    activeMoodTags.clear();
+    activeFunctionTags.clear();
+    activeContextTags.clear();
     filterCyrillic = false;
     filterVariable = false;
-    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    document.querySelectorAll('#filterStack input[type="checkbox"]').forEach(cb => { cb.checked = false; });
+    document.querySelectorAll('.summary-meta').forEach(el => { el.textContent = ''; });
     render();
   });
 }
