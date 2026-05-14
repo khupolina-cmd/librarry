@@ -84,8 +84,8 @@ Always work in this order:
 5. write `description` grounded in observable font properties
 6. write `specimen` entries appropriate to the font's register
 7. write `index` block for retrieval
-8. append the completed record to `font-library/fonts.json`
-9. if local files exist, confirm they are placed in `font-library/fonts/<id>/`
+8. append the completed record to `font-system/font-library/fonts.json`
+9. if local files exist, confirm they are placed in `font-system/font-library/fonts/<id>/`
 10. confirm the HTML viewer will pick up the new record on next load
 
 ## Vocabulary — `tags.style`
@@ -184,9 +184,9 @@ After processing, produce:
 
 Read these before starting:
 
-- `font-library/fonts.json` — current master index (always load; shows existing records and vocabulary in use)
-- `font-library/README.md` — font file layout and field documentation
-- `part_04_skills/font-library-indexer/references/font-record-shape.md` — canonical field reference
+- `font-system/font-library/fonts.json` — current master index (always load; shows existing records and vocabulary in use)
+- `font-system/font-library/README.md` — font file layout and field documentation
+- `font-system/font-library-indexer/references/font-record-shape.md` — canonical field reference
 
 ## Success condition
 
